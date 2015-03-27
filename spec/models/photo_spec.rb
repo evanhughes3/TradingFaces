@@ -3,8 +3,8 @@ require 'rails_helper'
 describe Photo do
   context "validations" do
     it { should validate_presence_of :img_url }
-    # it { should validate_presence_of :user_id }
-    # it { should validate_presence_of :round_id }
+    it { should validate_presence_of :user_id }
+    it { should validate_presence_of :round_id }
 
     it { should validate_uniqueness_of :img_url }
   end

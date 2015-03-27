@@ -13,6 +13,8 @@ log/*
 **.orig
 rerun.txt
 pickle-email-*.html
+.env
+test_image.png
 
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo

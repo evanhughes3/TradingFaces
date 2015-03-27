@@ -58,6 +58,9 @@ GEM
     docile (1.1.5)
     domain_name (0.5.23)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.0.0)
+    dotenv-rails (2.0.0)
+      dotenv (= 2.0.0)
     erubis (2.7.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -180,6 +183,7 @@ DEPENDENCIES
   chromedriver-helper
   cloudinary
   database_cleaner
+  dotenv-rails
   factory_girl_rails
   pg
   rails (= 4.2.0)
