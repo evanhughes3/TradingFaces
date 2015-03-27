@@ -10,6 +10,20 @@ gem 'spring', :group => :development
 
 gem 'pg'
 
+gem 'simplecov', :require => false, :group => :test
+
+group :development, :test do
+  gem 'spring'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'selenium-webdriver'
+  gem "chromedriver-helper"
+  gem 'database_cleaner'
+end
+
+
 
 
 # To use ActiveModel has_secure_password
