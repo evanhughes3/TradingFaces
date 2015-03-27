@@ -16,3 +16,13 @@
 .output {
   display: none;
 }
+
+
+#body_left {
+  width: 49%;
+}
+
+#body_right {
+  width: 49%;
+
+}
