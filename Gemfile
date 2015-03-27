@@ -7,6 +7,7 @@ gem 'rails-api'
 
 gem 'spring', :group => :development
 
+gem 'cloudinary'
 
 gem 'pg'
 
@@ -22,7 +23,6 @@ group :development, :test do
   gem "chromedriver-helper"
   gem 'database_cleaner'
 end
-
 
 
 
