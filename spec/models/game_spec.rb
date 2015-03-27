@@ -9,4 +9,4 @@ describe Game do
     it { should have_many :rounds }
     it { should belong_to :winner }
   end
-endg
+end
