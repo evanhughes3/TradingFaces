@@ -5,7 +5,8 @@
   <title>HTML5 Demo: getUserMedia (Treehouse Blog)</title>
   <link rel="stylesheet" href="app.css">
   <link href='http://fonts.googleapis.com/css?family=Megrim' rel='stylesheet' type='text/css'>
-
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="photo_capture.js"></script>
 </head>
 <body>
    <div id="banner">
@@ -17,13 +18,15 @@
     <button id="take-photo">Take Photo</button>
   </div>
 
-	<canvas id="canvas" style="display: none;">
+  <canvas id="canvas" style="display: none;">
   </canvas>
 
 
    <div class="output">
     <img id="photo" alt="The screen capture will appear in this box.">
   </div>
+  <button id="save-photo">Save Photo</button>
+
 
   <div id="body_left">
   </div>
@@ -31,6 +34,5 @@
   <div id="body_right">
   </div>
 
-  <script src="script2.js"></script>
 </body>
 </html>

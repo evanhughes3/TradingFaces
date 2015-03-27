@@ -5,8 +5,9 @@ gem 'rails', '4.2.0'
 
 gem 'rails-api'
 
-gem 'spring', :group => :development
+gem 'httparty'
 
+gem 'cloudinary'
 
 gem 'pg'
 
@@ -21,8 +22,8 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem "chromedriver-helper"
   gem 'database_cleaner'
+  gem 'dotenv-rails'
 end
-
 
 
 
