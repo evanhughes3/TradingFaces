@@ -7,8 +7,9 @@ describe Player do
   end
 
   describe 'custom validations' do
+
     it 'should validate unique user & round combinations' do
-      pending
+
     end
   end
 
