@@ -7,6 +7,8 @@ gem 'rails-api'
 
 gem 'pg'
 
+gem 'omniauth-facebook'
+
 gem 'simplecov', :require => false, :group => :test
 
 group :development, :test do
