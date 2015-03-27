@@ -94,7 +94,20 @@
   function savePhoto (event) {
     event.preventDefault();
     var imageData = document.getElementById('photo').getAttribute('src');
-    console.log(imageData);
+    var ajaxResponse = $.ajax({
+      url: '/photos',
+      type: 'post',
+      data: {image_data: imageData},
+    });
+
+    ajaxResponse.done(function (serverData) {
+      console.log('Successfully saved photo.')
+    });
+
+    ajaxResponse.fail(function () {
+      console.log('Failed to save photo.')
+    });
+
   }
 
   window.addEventListener('load', startup, false);
