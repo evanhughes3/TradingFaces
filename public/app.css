@@ -1,0 +1,28 @@
+* {
+  border: 1px solid black;
+}
+
+#banner {
+  text-align: center;
+  font-family: 'Megrim', cursive;
+  font-size: 20px;
+}
+
+#video_container {
+  display: none;
+
+}
+
+.output {
+  display: none;
+}
+
+
+#body_left {
+  width: 49%;
+}
+
+#body_right {
+  width: 49%;
+
+}
