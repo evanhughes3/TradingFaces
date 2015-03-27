@@ -8,6 +8,7 @@
   var canvas = null;
   var photo = null;
   var startbutton = null;
+  var savebutton = null;
 
   function startup() {
     // Need to update to current HTML setup
@@ -15,6 +16,7 @@
       canvas = document.getElementById('canvas');
       photo = document.getElementById('photo');
       startbutton = document.getElementById('take-photo');
+      savebutton = document.getElementById('save-photo');
 
       navigator.getMedia = ( navigator.getUserMedia ||
                              navigator.webkitGetUserMedia ||
@@ -56,6 +58,8 @@
                     takepicture();
                     ev.preventDefault();
                   }, false);
+
+              savebutton.addEventListener('click', savePhoto );
             },
             function(err) {
               console.log("An error occured! " + err);
@@ -85,6 +89,12 @@
     } else {
       clearphoto();
     }
+  }
+
+  function savePhoto (event) {
+    event.preventDefault();
+    var imageData = document.getElementById('photo').getAttribute('src');
+    console.log(imageData);
   }
 
   window.addEventListener('load', startup, false);
