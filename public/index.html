@@ -3,23 +3,40 @@
 <head>
   <meta charset="utf-8">
   <title>HTML5 Demo: getUserMedia (Treehouse Blog)</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="app.css">
+  <link href='http://fonts.googleapis.com/css?family=Megrim' rel='stylesheet' type='text/css'>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="photo_capture.js"></script>
 </head>
 <body>
+
   <p><a href="html/login.html">Login Page</a></p>
 
-  <div id="video-container">
+   <div id="banner">
+    <h1>Trading Faces</h1>
+  </div>
+
+  <div id="video_container">
     <video id="camera-stream" width="500" autoplay></video>
     <button id="take-photo">Take Photo</button>
   </div>
 
-	<canvas id="canvas" style="display: none;">
+  <canvas id="canvas" style="display: none;">
   </canvas>
-  <div class="output">
+
+
+   <div class="output">
     <img id="photo" alt="The screen capture will appear in this box.">
   </div>
 
+  <button id="save-photo">Save Photo</button>
 
-  <script src="script2.js"></script>
+
+  <div id="body_left">
+  </div>
+
+  <div id="body_right">
+  </div>
+
 </body>
 </html>

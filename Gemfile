@@ -5,6 +5,10 @@ gem 'rails', '4.2.0'
 
 gem 'rails-api'
 
+gem 'httparty'
+
+gem 'cloudinary'
+
 gem 'pg'
 
 gem 'omniauth-facebook'
@@ -22,7 +26,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'dotenv-rails'
 end
-
 
 
 
