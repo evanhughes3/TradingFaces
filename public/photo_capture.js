@@ -102,6 +102,7 @@
 
     ajaxResponse.done(function (serverData) {
       console.log('Successfully saved photo.')
+      console.log(serverData);
     });
 
     ajaxResponse.fail(function () {
