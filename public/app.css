@@ -5,7 +5,8 @@
 #banner {
   text-align: center;
   font-family: 'Megrim', cursive;
-  font-size: 20px;
+  font-size: 30px;
+  height:19%;
 }
 
 #video_container {
@@ -13,16 +14,25 @@
 
 }
 
+
 .output {
   display: none;
 }
 
+.body_container  {
+  width: 48%;
+  float: left;
+  text-align: center;
+  margin-top: 1%;
+  height: 60%;
+}
 
 #body_left {
-  width: 49%;
+margin-left: 1%;
+
 }
 
 #body_right {
-  width: 49%;
+  margin-left: 2%;
 
 }
