@@ -14,7 +14,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dontenv::Railtie.loaded
+Dotenv::Railtie.load
 HOSTNAME = ENV['HOSTNAME']
 
 module TradingFaces
