@@ -7,7 +7,8 @@ class PhotosController < ApplicationController
 		new_image = File.open("test_image.png", 'wb')
 		new_image.write(png)
 		response = Cloudinary::Uploader.upload(new_image.path)
-		photo = Photo.create(img_url: response["secure_url"])
+		image_url = response["secure_url"]
+		# photo = Photo.create(img_url: response["secure_url"])
 	end
 
 
