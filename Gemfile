@@ -5,9 +5,6 @@ gem 'rails', '4.2.0'
 
 gem 'rails-api'
 
-gem 'spring', :group => :development
-
-
 gem 'pg'
 
 gem 'simplecov', :require => false, :group => :test
@@ -21,6 +18,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem "chromedriver-helper"
   gem 'database_cleaner'
+  gem 'dotenv-rails'
 end
 
 
