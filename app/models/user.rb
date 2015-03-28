@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_many :games, foreign_key: 'winner_id'
   has_many :players
   has_many :rounds, through: :players
+  has_many :friendships
+  has_many :friends, through: :friendships
 
   validates :uid, :oauth_token, presence: true
   validates :uid, :oauth_token, uniqueness: true
@@ -19,6 +21,7 @@ class User < ActiveRecord::Base
 
     # friends who also play the game
     results = self.get_friends_data_from_omniauth
+    self.create_friendships(results["data"])
 
     return @user
   end
@@ -31,5 +34,13 @@ class User < ActiveRecord::Base
 
   def self.get_friends_data_from_omniauth
     HTTParty.get("https://graph.facebook.com/v2.3/#{@user.uid}/friends?access_token=#{@user.oauth_token}")
+  end
+
+  def self.create_friendships(friends_data)
+    friends_data.each do |friend_data|
+      uid = friend_data["id"].to_i
+      friend = User.find_by(uid: uid)
+      Friendship.find_or_create_by(user_id: @user.id, friend_id: friend.id)
+    end
   end
 end
