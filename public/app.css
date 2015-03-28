@@ -12,18 +12,19 @@
 #landing_body {
   background-image: url("/home_face.jpg");
   background-size: cover;
-  height: 500px;
-  width: 500px;
-  margin-left: 30%;
+  height: 50%;
+  width: 50%;
+  margin-left: 25%;
 }
 
 #facebook_button {
-  margin-left: 35%;
+  width: 40%;
+  margin-left: 30%;
   margin-top: 45%;
 }
 #logo {
   width: 50%;
-  margin: 0 auto;
+  margin-left: 25%;
 }
 
 #video_container {
