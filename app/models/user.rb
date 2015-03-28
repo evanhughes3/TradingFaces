@@ -19,6 +19,12 @@ class User < ActiveRecord::Base
     user.provider = 'facebook'
     user.save!
 
+    # friends who also play the game
+    results = HTTParty.get("https://graph.facebook.com/v2.3/#{user.uid}/friends?access_token=#{user.oauth_token}")
+    p "*" * 50
+    p results
+
+    binding.pry
     return user
   end
 
