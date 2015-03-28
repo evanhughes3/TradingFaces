@@ -95,7 +95,7 @@
     event.preventDefault();
     var imageData = document.getElementById('photo').getAttribute('src');
     var ajaxResponse = $.ajax({
-      url: '/photos',
+      url: 'games/1/rounds/1/photos',
       type: 'post',
       data: {image_data: imageData},
     });
