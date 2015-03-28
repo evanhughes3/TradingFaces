@@ -9,14 +9,19 @@
   height:19%;
 }
 
-#video_container {
-  /*display: none;*/
+#logo {
+  width: 40%;
+  margin: 0 auto;
+}
 
+#video_container {
+  display: none;
 }
 
 
+
 .output {
-  /*display: none;*/
+  display: none;
 }
 
 .body_container  {
@@ -29,10 +34,12 @@
 
 #body_left {
 margin-left: 1%;
+display: none;
 
 }
 
 #body_right {
   margin-left: 2%;
+  display: none;
 
 }
