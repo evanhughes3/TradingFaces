@@ -38,7 +38,6 @@ class User < ActiveRecord::Base
 
   def self.create_friendships(friends_data)
     friends_data.each do |friend_data|
-      next if friend_data["id"] == "10153267537095337"
       uid = friend_data["id"].to_i
       friend = User.find_by(uid: uid)
       Friendship.find_or_create_by(user_id: @user.id, friend_id: friend.id)
