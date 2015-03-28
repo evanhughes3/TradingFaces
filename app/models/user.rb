@@ -9,17 +9,28 @@ class User < ActiveRecord::Base
   validate :provider_must_be_facebook
 
   def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.name = auth.info.name
-      user.oauth_token = auth.creditnials.oauth_token
-      user.save!
-    end
+    p auth
+    user = User.new
+    user.uid = auth.uid.to_i
+    user.full_name = auth.info.name
+    user.email = auth.info.email
+    user.oauth_token = auth.credentials.token
+    user.photo_url = auth.info.image
+    user.provider = 'facebook'
+    user.save!
+
+
+    # user = User.find_or_initialize_by(uid: auth.uid)
+    #   user.uid = auth.uid
+    #   user.full_name = auth.info.name
+    #   user.email = auth.info.email
+    #   user.oauth_token = auth.creditnials.oauth_token
+    #   user.photo_url = auth.info.image
+    #   user.save!
   end
 
   def provider_must_be_facebook
-    if provider != 'Facebook'
+    if provider != 'facebook'
       errors.add(:provider, 'provider must be facebook')
     end
   end

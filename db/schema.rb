@@ -46,13 +46,14 @@ ActiveRecord::Schema.define(version: 20150327223226) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
+    t.string   "full_name"
     t.string   "photo_url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "provider"
-    t.integer  "uid"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "provider",              default: "facebook"
+    t.integer  "uid",         limit: 8
     t.string   "oauth_token"
+    t.string   "email"
   end
 
 end
