@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     p auth
-    user = User.new
-    user.uid = auth.uid.to_i
+    user = User.find_or_initialize_by(uid: auth.uid)
+    # user.uid = auth.uid.to_i
     user.full_name = auth.info.name
     user.email = auth.info.email
     user.oauth_token = auth.credentials.token
@@ -19,14 +19,7 @@ class User < ActiveRecord::Base
     user.provider = 'facebook'
     user.save!
 
-
-    # user = User.find_or_initialize_by(uid: auth.uid)
-    #   user.uid = auth.uid
-    #   user.full_name = auth.info.name
-    #   user.email = auth.info.email
-    #   user.oauth_token = auth.creditnials.oauth_token
-    #   user.photo_url = auth.info.image
-    #   user.save!
+    return user
   end
 
   def provider_must_be_facebook
