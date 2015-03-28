@@ -17,18 +17,18 @@ class SessionsController < ApplicationController
   # end
 
   def create
-    email = env['omniauth.auth']['info']['email']
-    uid = env['omniauth.auth']['uid']
-    full_name = env['omniauth.auth']['info']['name']
-    fbook_profile_pic = env['omniauth.auth']['info']['image']
-    fbook_token = env['omniauth.auth']['credentials']['token']
+    p email = env['omniauth.auth']['info']['email']
+    p uid = env['omniauth.auth']['uid']
+    p full_name = env['omniauth.auth']['info']['name']
+    p fbook_profile_pic = env['omniauth.auth']['info']['image']
+    p fbook_token = env['omniauth.auth']['credentials']['token']
     p "inside create"
-    @user = User.find_or_create_from_auth_hash(auth_hash)
-    self.current_user = @user
-    # redirect_to root_url
-    p ENV['omniauth.auth']
-    user = User.from_omniauth(ENV['omniauth.auth'])
-    session[:user_id] = user.id
+    # @user = User.find_or_create_from_auth_hash(auth_hash)
+    # self.current_user = @user
+    # # redirect_to root_url
+    # p ENV['omniauth.auth']
+    # user = User.from_omniauth(ENV['omniauth.auth'])
+    # session[:user_id] = user.id
     redirect_to root_url
   end
 
