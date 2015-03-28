@@ -9,6 +9,7 @@
   height:19%;
 }
 
+
 #landing_body {
   background-image: url("/home_face.jpg");
   background-size: cover;
@@ -26,6 +27,7 @@
   width: 50%;
   margin-left: 25%;
 }
+
 
 #video_container {
   display: none;
@@ -56,5 +58,4 @@ display: none;
 
 }
 
-.button {
-}
+

@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327013651) do
+ActiveRecord::Schema.define(version: 20150328225357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "games", force: :cascade do |t|
     t.integer  "winner_id"
@@ -46,11 +53,14 @@ ActiveRecord::Schema.define(version: 20150327013651) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "username"
+    t.string   "full_name"
     t.string   "photo_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "provider",              default: "facebook"
+    t.integer  "uid",         limit: 8
+    t.string   "oauth_token"
+    t.string   "email"
   end
 
 end

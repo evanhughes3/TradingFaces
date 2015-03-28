@@ -38,14 +38,14 @@
               video.addEventListener('canplay', function(ev){
                     if (!streaming) {
                       height = video.videoHeight / (video.videoWidth/width);
-                    
+
                       // Firefox currently has a bug where the height can't be read from
                       // the video, so we will make assumptions if this happens.
-                    
+
                       if (isNaN(height)) {
                         height = width / (4/3);
                       }
-                    
+
                       video.setAttribute('width', width);
                       video.setAttribute('height', height);
                       canvas.setAttribute('width', width);
@@ -63,6 +63,7 @@
             },
             function(err) {
               console.log("An error occured! " + err);
+              console.log("The computer does not have a camera.");
             }
           );
 	clearphoto();
@@ -83,7 +84,7 @@
       canvas.width = width;
       canvas.height = height;
       context.drawImage(video, 0, 0, width, height);
-    
+
       var data = canvas.toDataURL('image/png');
       photo.setAttribute('src', data);
     } else {
@@ -95,7 +96,7 @@
     event.preventDefault();
     var imageData = document.getElementById('photo').getAttribute('src');
     var ajaxResponse = $.ajax({
-      url: '/photos',
+      url: 'games/1/rounds/1/photos',
       type: 'post',
       data: {image_data: imageData},
     });
