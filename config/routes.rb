@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :rounds do
-    get :compare, on: :member
+  resources :games, only: ['create'] do
+    resources :rounds, only: ['create'] do
+      resources :photos, only: ['create']
+    end
   end
 
-  resources :photos, only: ['create']
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
