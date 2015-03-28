@@ -1,6 +1,5 @@
 class PhotosController < ApplicationController
 
-
 	def create
 		round = Round.find(params[:round_id])
 		game = Game.find(params[:game_id])

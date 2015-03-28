@@ -10,10 +10,10 @@
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
 
-# Although this is not needed for an api-only application, rails4 
-# requires secret_key_base or secret_token to be defined, otherwise an 
+# Although this is not needed for an api-only application, rails4
+# requires secret_key_base or secret_token to be defined, otherwise an
 # error is raised.
 # Using secret_token for rails3 compatibility. Change to secret_key_base
 # to avoid deprecation warning.
 # Can be safely removed in a rails3 api-only application.
-TradingFaces::Application.config.secret_token = '85f548a0c008f402088724fe8b81a3e63dd4505c8f178e81e31ba2eb8420b640d937369f4498d5de035450bc9a690a84efb693cb3782794a0c02b696f1dffd3a'
+TradingFaces::Application.config.secret_token = ENV['MY_SECRET_TOKEN']

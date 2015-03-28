@@ -10,13 +10,16 @@
 }
 
 #video_container {
-  /*display: none;*/
+  display: none;
+}
 
+.hide {
+  display: none;
 }
 
 
 .output {
-  /*display: none;*/
+  display: none;
 }
 
 .body_container  {

@@ -11,9 +11,12 @@ gem 'cloudinary'
 
 gem 'pg'
 
+
 gem 'simplecov', :require => false, :group => :test
+gem 'pry-byebug'
 
 group :development, :test do
+  gem 'better_errors'
   gem 'spring'
   gem 'rspec-rails'
   gem 'capybara'
@@ -26,6 +29,7 @@ group :development, :test do
 end
 
 
+gem 'omniauth-facebook'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
