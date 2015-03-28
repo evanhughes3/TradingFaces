@@ -9,4 +9,10 @@ class RoundsController < ApplicationController
   	render json: {game: game, round: round}
 	end
 
+	def index
+		user = User.find(params[:user_id])
+		rounds = user.rounds
+		render json: rounds
+	end
+
 end
