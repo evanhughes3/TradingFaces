@@ -1,23 +1,34 @@
-* {
+/** {
   border: 1px solid black;
 }
-
+*/
 #banner {
   text-align: center;
   font-family: 'Megrim', cursive;
-  font-size: 30px;
+  font-size: 35px;
   height:19%;
 }
 
+#landing_body {
+  background-image: url("/home_face.jpg");
+  background-size: cover;
+  height: 500px;
+  width: 500px;
+  margin-left: 30%;
+}
+
+#facebook_button {
+  margin-left: 35%;
+  margin-top: 45%;
+}
 #logo {
-  width: 40%;
+  width: 50%;
   margin: 0 auto;
 }
 
 #video_container {
   display: none;
 }
-
 
 
 .output {
@@ -42,4 +53,7 @@ display: none;
   margin-left: 2%;
   display: none;
 
+}
+
+.button {
 }
