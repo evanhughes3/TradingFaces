@@ -1,1 +1,1 @@
-TradingFaces::Application.config.session_store :cookie_store, :key => '716047925174912'
+TradingFaces::Application.config.session_store :cookie_store, :key => ENV['FACEBOOK_KEY']
