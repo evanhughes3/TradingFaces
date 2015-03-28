@@ -38,7 +38,12 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.0)
     aws_cf_signer (0.1.3)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     builder (3.2.2)
+    byebug (4.0.4)
+      columnize (= 0.9.0)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -53,6 +58,8 @@ GEM
     cloudinary (1.0.83)
       aws_cf_signer
       rest-client
+    coderay (1.1.0)
+    columnize (0.9.0)
     database_cleaner (1.4.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
@@ -86,6 +93,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
@@ -112,6 +120,13 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     pg (0.18.1)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (3.1.0)
+      byebug (~> 4.0)
+      pry (~> 0.10)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -177,6 +192,7 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.9.0)
     simplecov-html (0.9.0)
+    slop (3.6.0)
     spring (1.3.3)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -204,6 +220,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
   capybara
   chromedriver-helper
   cloudinary
@@ -213,6 +230,7 @@ DEPENDENCIES
   httparty
   omniauth-facebook
   pg
+  pry-byebug
   rails (= 4.2.0)
   rails-api
   rspec-rails

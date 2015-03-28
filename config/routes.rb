@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
-  match 'auth/:provider/callback', to: 'sessions#create', via: :post
-  match 'auth/failure', to: redirect('/'), via: :get
-  match 'signout', to: 'sessions#destroy', as: 'signout', via: :delete
+  match '/auth/:provider/callback', to: 'sessions#create', via: :get
+  # match 'auth/failure', to: redirect('/'), via: :get
+  # match 'auth/:provider', to: 'sessions#new', via: :get
+  match '/signout', to: 'sessions#destroy', as: 'signout', via: :delete
+
+  match '/signin', to: 'sessions#new', :as => :signin, via: :get
 
   root 'user#index'
 
