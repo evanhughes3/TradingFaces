@@ -16,6 +16,8 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'simplecov', :require => false, :group => :test
 gem 'pry-byebug'
 
+# gem 'bootstrap'
+
 group :development, :test do
   gem 'better_errors'
   gem 'spring'
