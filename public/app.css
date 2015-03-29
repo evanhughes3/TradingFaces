@@ -1,7 +1,7 @@
-/** {
+* {
   border: 1px solid black;
 }
-*/
+
 #banner {
   text-align: center;
   font-family: 'Megrim', cursive;
@@ -12,10 +12,11 @@
 
 #landing_body {
   background-image: url("/home_face.jpg");
-  background-size: cover;
+  background-size: no-repeat;
   height: 50%;
   width: 50%;
   margin-left: 25%;
+  margin-top: 5%;
 }
 
 #facebook_button {
