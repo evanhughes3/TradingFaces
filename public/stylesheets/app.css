@@ -1,12 +1,13 @@
 /** {
   border: 1px solid black;
-}*/
-
+}
+*/
 #banner {
-  text-align: center;
-  font-family: 'Megrim', cursive;
-  font-size: 200%;
   height:25%;
+}
+
+#navbar {
+
 }
 
 
@@ -14,9 +15,20 @@
   background-image: url("/home_face.jpg");
   background-size: cover;
   height: 10%;
-  width: 50%;
+  width: 0%;
   margin-left: 25%;
 
+}
+
+.thumbnail {
+  width: 9%;
+  height: 9%;
+  text-align: center;
+  display: inline-block;
+  float: left;
+  margin-left: 6%;
+  border: none;
+  margin-top: 5%;
 }
 
 #facebook_button {
@@ -27,10 +39,18 @@
 }
 
 #logo {
-  width: 50%;
-  margin-left: 25%;
+  width: 30%;
+  display: inline-block;
+  float: left;
+  text-align: center;
+  margin-left: 3%;
+  font-family: 'Megrim', cursive;
+
 }
 
+h1 {
+  font-size: 650%;
+}
 
 #video_container {
   display: none;
