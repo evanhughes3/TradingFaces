@@ -12,6 +12,7 @@ gem 'cloudinary'
 gem 'pg'
 
 gem 'rack-cors', :require => 'rack/cors'
+gem 'hirb', :require=> 'hirb', :group => :development
 
 gem 'simplecov', :require => false, :group => :test
 gem 'pry-byebug'

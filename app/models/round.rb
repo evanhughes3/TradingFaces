@@ -1,6 +1,7 @@
 class Round < ActiveRecord::Base
   belongs_to :game
   has_many :photos
+  belongs_to :responder, class_name: 'User'
   # has_many :players
   # has_many :users, through: :players
 
