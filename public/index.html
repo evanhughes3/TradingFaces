@@ -6,8 +6,11 @@
   <link href='http://fonts.googleapis.com/css?family=Megrim' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/app.css">
+  <link rel="stylesheet" href="stylesheets/new_game.css">
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="javascript/new_game.js"></script>
   <script src="/javascript/index.js"></script>
   <script src="/javascript/photo_capture.js"></script>
   <script src="/javascript/application.js"></script>
@@ -16,7 +19,7 @@
   <body>
 
 <div id="navbar">
-  <a href="#" id="new-game" class="thumbnail">
+  <a href="/friends" id="new-game" class="thumbnail">
     <img src="/images/smile_icon.png">New Game
   </a>
 
@@ -36,6 +39,28 @@
     <img src="/images/wink_icon.png">Logout
   </a>
 
+</div>
+
+<div class="friends_to_challenge">
+</div>
+
+<div class="start-game">
+  <script type="text/x=handlebars-template" id="friends_to_challenge_template">
+    <div class="friends_to_challenge">
+      <h2>Pick a Friend</h2>
+    </div>
+    <div class="friend_box">
+      {{#each friends}}
+        <div id="friend_{{id}}">
+          <img class="thumbnail" src="{{photo_url}}">
+          <div class="friend_data">
+            <h3>{{full_name}}</h3>
+            <button id="user_{{id}}">Challenge</button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </script>
 </div>
 
 
@@ -61,7 +86,7 @@
     <div class="body_container" id="body_right">
       <h1>Body Right</hi>
     </div>
-    
+
 
 
   </body>
