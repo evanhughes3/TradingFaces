@@ -34,8 +34,9 @@ var startNewGameListener = function() {
 $(document).ready(function() {
   startNewGameListener();
 
-  $('.challenge').on('submit', function(event){
+  $('.friends_to_challenge').on('click', '.friend_data form', function(event){
     event.preventDefault();
+    console.log('winning');
   });
 
 });
