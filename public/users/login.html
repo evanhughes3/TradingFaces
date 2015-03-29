@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HTML5 Demo: getUserMedia (Treehouse Blog)</title>
+  <link rel="stylesheet" href="app.css">
+  <link href='http://fonts.googleapis.com/css?family=Megrim' rel='stylesheet' type='text/css'>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+  <script src="javascript/login.js"></script>
+
+  <script src="photo_capture.js"></script>
+</head>
+<body>
+
+  <button id="fb_login"><a href="http://fuf.me:3000/auth/facebook">Login</a></button>
+  <button id="fb_logout"><a href="http://fuf.me:3000/signout">Logout</a></button>
+
+   <div id="banner">
+    <div id="faces_left">
+
+    </div>
+
+    <h1>Trading Faces</h1>
+
+    <div id="faces_right" img_src>
+
+    </div>
+  </div>
+
+  <div id="video_container">
+    <video id="camera-stream" width="500" autoplay></video>
+    <button id="take-photo">Take Photo</button>
+  </div>
+
+  <canvas id="canvas" style="display: none;">
+  </canvas>
+
+
+   <div class="output">
+    <img id="photo" alt="The screen capture will appear in this box.">
+  </div>
+
+  <div class="hide">
+    <button id="save-photo">Save Photo</button>
+  </div>
+
+    <div class="body_container" id="body_left">
+      <h1>Body Left</h1>
+    </div>
+
+    <div class="body_container" id="body_right">
+      <h1>Body Right</hi>
+    </div>
+
+
+</body>
+</html>
