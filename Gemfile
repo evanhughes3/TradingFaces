@@ -17,6 +17,8 @@ gem 'hirb', :require=> 'hirb', :group => :development
 gem 'simplecov', :require => false, :group => :test
 gem 'pry-byebug'
 
+# gem 'bootstrap'
+
 group :development, :test do
   gem 'better_errors'
   gem 'spring'
