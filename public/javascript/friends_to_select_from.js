@@ -1,7 +1,8 @@
 var getAllFriends = function() {
   return $.ajax({
-    url: '/users'
-  })
+    url: '/friends',
+    method: 'get'
+  });
 }
 
 var renderUsers = function(data) {
@@ -12,5 +13,16 @@ var renderUsers = function(data) {
 }
 
 $(document).ready(function() {
+
+  $('.start_game').on('submit', function(event){
+    console.log('winning');
+    event.preventDefault();
+    friends = getAllFriends();
+
+    friends.done(function(response){
+      console.log(response);
+      renderUsers(response);
+    })
+  });
 
 });
