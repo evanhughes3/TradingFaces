@@ -27,12 +27,16 @@ class User < ActiveRecord::Base
   end
 
   def get_users_won_games
-    players_where_winning = current_user.players.where(winner: true)
+    players_where_winning = self.players.where(winner: true)
     winning_games = players_where_winning.map do |player|
       player.game
     end
 
     return winning_games
+  end
+
+  def get_current_games
+    self.games.select { |game| game.over? == false }
   end
 
   private
