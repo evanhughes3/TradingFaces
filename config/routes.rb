@@ -8,11 +8,10 @@ Rails.application.routes.draw do
   get 'users/show'
 
   resources :users do
-    resources :rounds, only: ['index']
-  end
-  resources :games, only: ['create'] do
-    resources :rounds, only: ['create'] do
-      resources :photos, only: ['create']
+    resources :games, only: ['create', 'index'] do
+      resources :rounds, only: ['create', 'index'] do
+        resources :photos, only: ['create']
+      end
     end
   end
 
