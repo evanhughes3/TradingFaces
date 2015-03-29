@@ -1,3 +1,10 @@
+var turnOffClickListener = function(target, action) {
+  $(target).off(action)
+  $(target).on(action, function(event){
+    event.preventDefault();
+  })
+}
+
 var getAllFriends = function() {
   return $.ajax({
     url: '/friends',
@@ -20,9 +27,9 @@ $(document).ready(function() {
     friends = getAllFriends();
 
     friends.done(function(response){
-      console.log(response);
       renderUsers(response);
-    })
+      turnOffClickListener('.start_game', 'submit');
+    });
   });
 
 });
