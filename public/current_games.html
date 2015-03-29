@@ -23,8 +23,14 @@
       
     </div>
     
-    <script id="entry-template" type="text/x-handlebars-template">
-
+    <script id="current-games-template" type="text/x-handlebars-template">
+      {{#each games}}
+        <ul>
+          {{#each users}}
+            <li>{{full_name}}</li>
+          {{/each}}
+        </ul>
+      {{/each}}
     </script>
   </body>
 </html>

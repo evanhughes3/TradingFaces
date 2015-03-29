@@ -11,7 +11,8 @@ class GamesController < ApplicationController
 
   def current_games
 		games = current_user.get_current_games
-  	render json: games.to_json(include: :users)
+  	render json: games, only: :id, :include => [{:users => {only: [:id, :full_name, :photo_url]}}, 
+  																							{:rounds => {only: [:id, :rating], :include => [{:responder => {only: [:id, :full_name, :photo_url]}} , :photos]}},]
   end
 
 end
