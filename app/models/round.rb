@@ -1,8 +1,8 @@
 class Round < ActiveRecord::Base
   belongs_to :game
   has_many :photos
-  has_many :players
-  has_many :users, through: :players
+  # has_many :players
+  # has_many :users, through: :players
 
   validates :game_id, :rating, presence: true
   validates :rating, numericality: { only_integer: true, less_than_or_equal_to: 5 }
