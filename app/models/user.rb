@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :photos
-  has_many :games, foreign_key: 'winner_id'
   has_many :players
+  has_many :games, through: :players
   has_many :rounds, foreign_key: 'responder_id'
   has_many :friendships
   has_many :friends, through: :friendships
