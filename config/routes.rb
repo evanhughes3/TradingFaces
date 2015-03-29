@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy', as: 'signout', via: :get
 
   get 'users/index'
+  get 'users/show'
+
   resources :users do
     resources :rounds, only: ['index']
   end
@@ -13,6 +15,8 @@ Rails.application.routes.draw do
       resources :photos, only: ['create']
     end
   end
+
+  root 'users#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
