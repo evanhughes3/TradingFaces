@@ -1,0 +1,34 @@
+/** {
+  border: 1px solid black;
+
+}*/
+
+
+
+#login-banner {
+  height:20%;
+}
+
+#login-logo {
+  width: 50%;
+  font-family: 'Megrim', cursive;
+  text-align: center;
+  font-size: 250%;
+  margin-left: 25%;
+}
+
+#landing-body {
+  background-image: url("../images/wink_icon.png");
+  background-size: 60% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 400px;
+  width: 60%;
+  margin: auto;
+
+}
+
+#facebook_button {
+  width: 30%;
+  margin-left: 35%;
+}
