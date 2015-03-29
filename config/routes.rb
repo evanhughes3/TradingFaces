@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'users/show'
 
-  resources :users do
+  resources :users, only: ['destroy'] do
     resources :games, only: ['create', 'index'] do
       resources :rounds, only: ['create', 'index'] do
         resources :photos, only: ['create']
