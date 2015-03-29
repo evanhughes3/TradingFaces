@@ -55,7 +55,9 @@
           <img class="thumbnail" src="{{photo_url}}">
           <div class="friend_data">
             <h3>{{full_name}}</h3>
-            <button id="user_{{id}}">Challenge</button>
+            <form action="/games" method="post">
+              <input type="submit" value="Challenge!" class="user_{{id}}" />
+            </form>
           </div>
         </div>
       {{/each}}

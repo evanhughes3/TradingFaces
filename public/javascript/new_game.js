@@ -19,10 +19,8 @@ var renderUsers = function(data) {
   $('.friends_to_challenge').append(friendsTemplate(context));
 }
 
-$(document).ready(function() {
-
+var startNewGameListener = function() {
   $('#new-game').on('click', function(event){
-    console.log('winning');
     event.preventDefault();
     friends = getAllFriends();
 
@@ -30,6 +28,14 @@ $(document).ready(function() {
       renderUsers(response);
       turnOffClickListener('.start_game', 'submit');
     });
+  });
+}
+
+$(document).ready(function() {
+  startNewGameListener();
+
+  $('.challenge').on('submit', function(event){
+    event.preventDefault();
   });
 
 });
