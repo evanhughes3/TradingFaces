@@ -2,7 +2,7 @@ class Player < ActiveRecord::Base
   belongs_to :user
   belongs_to :game
 
-  validates :user_id, :round_id, presence: true
+  validates :user_id, presence: true
   # validate :unique_user_round_combination
 
 
