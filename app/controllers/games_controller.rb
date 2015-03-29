@@ -9,11 +9,6 @@ class GamesController < ApplicationController
   	render json: {game: game, round: round}
   end
 
-  # def index
-  # 	games = current_user.games
-  # 	render json: games.to_json(include: :users)
-  # end
-
   def current_games
 		games = current_user.get_current_games
   	render json: games.to_json(include: :users)
