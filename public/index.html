@@ -4,20 +4,42 @@
   <meta charset="UTF-8">
   <title>Trading Faces</title>
   <link href='http://fonts.googleapis.com/css?family=Megrim' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/app.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="/javascript/index.js"></script>
   <script src="/javascript/photo_capture.js"></script>
   <script src="/javascript/application.js"></script>
+
 </head>
 <body>
 
-  <button id="new-game">New Game</button>
-  <button id="current-games">Current Games</button>
-  <button id="old-games">Old Games</button>
-  <button id="logout">Logout</button>
+<div id="navbar">
+  <a href="#" id="new-game" class="thumbnail">
+    <img src="/images/smile_icon.png">New Game
+  </a>
 
+  <a href="#" id="current-game" class="thumbnail">
+    <img src="/images/tongue_icon.png">Current Games
+  </a>
+
+  <div id="logo">
+    <h1>Trading Faces</h1>
+  </div>
+
+  <a href="#" id="old-games" class="thumbnail">
+    <img src="/images/whistle_icon.png">Old Games
+  </a>
+
+  <a href="#" id="logout" class="thumbnail">
+    <img src="/images/wink_icon.png">Logout
+  </a>
+
+</div>
+
+
+<!--   <input type="image" src="images/smile_icon.jpg" /> -->
 
   <div id="video_container">
     <video id="camera-stream" width="500" autoplay></video>
