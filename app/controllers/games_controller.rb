@@ -9,10 +9,14 @@ class GamesController < ApplicationController
   	render json: {game: game, round: round}
   end
 
-  def index
-  	user = User.find(params[:user_id])
-  	# games = Game.all.select { |game| game.users.pluck('id').include?(user.id) }
-  	render json: games.to_json(include: :users, include: :rounds)
+  # def index
+  # 	games = current_user.games
+  # 	render json: games.to_json(include: :users)
+  # end
+
+  def current_games
+		games = current_user.get_current_games
+  	render json: games.to_json(include: :users)
   end
 
 end

@@ -1,17 +1,21 @@
 function getCurrentGames (argument) {
+	var currentGameData = {};
 
 	var ajaxUser = $.ajax({
 	  url: '/users/show',
 	});
 
 	ajaxUser.done(function (userData) {
-	  var id = userData.id;
+	  var userId = userData.id;
+	  currentGameData.user = userData;
 	  var ajaxCurrentGames = $.ajax({
-	  	url: '/users/' + id + '/games',
+	  	url: '/users/' + userId + '/games',
 	  });
 
 	  ajaxCurrentGames.done(function (gameData) {
-	  	console.log(gameData);
+	  	currentGameData.games = gameData;
+	  	console.log(currentGameData);
+
 	  });
 
 	});
