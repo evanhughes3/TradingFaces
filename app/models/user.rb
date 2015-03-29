@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
     friends_data.each do |friend_data|
       uid = friend_data["id"].to_i
       friend = User.find_by(uid: uid)
+      next if friend.nil?
       Friendship.find_or_create_by(user_id: @user.id, friend_id: friend.id)
     end
   end
