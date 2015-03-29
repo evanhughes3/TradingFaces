@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href"../stylesheets/friends_to_select_from.css">
+  <script type="text/javascript" src="../javascript/friends_to_select_from.js">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+</head>
+<body>
+  <h1>Friends List</h1>
+
+  <div class="friends_to_challenge">
+  </div>
+
+  <script type="text/x=handlebars-template" id="friends_to_challenge_template">
+
+    {{#each friends}}
+      <div>
+        <h3>{{name}}</h3>
+        <button id="user_{{id}}">Challenge</button>
+      </div>
+    {{/each}}
+
+  </script>
+
+
+</body>
+</html>
