@@ -26,6 +26,17 @@ class User < ActiveRecord::Base
     return @user
   end
 
+  def get_users_won_games
+    players_where_winning = current_user.players.where(winner: true)
+    winning_games = players_where_winning.map do |player|
+      player.game
+    end
+
+    return winning_games
+  end
+
+  private
+
   def provider_must_be_facebook
     if provider != 'facebook'
       errors.add(:provider, 'provider must be facebook')
