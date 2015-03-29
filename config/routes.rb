@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy', as: 'signout', via: :get
 
   get 'users/index'
+  get 'users/show'
   resources :users do
     resources :rounds, only: ['index']
   end

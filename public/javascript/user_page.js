@@ -7,7 +7,7 @@ function getUser (event) {
 	var userPageInfo = {};
 
 	var ajaxUser = $.ajax({
-		url: '/users/index',
+		url: '/users/show',
 	});
 
 	ajaxUser.done(function (userData) {
@@ -19,6 +19,7 @@ function getUser (event) {
 
 		ajaxRounds.done(function (roundsData) {
 			userPageInfo.rounds = roundsData;
+			console.log(userPageInfo)
 		});
 
 	});
