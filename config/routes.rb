@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'users/show'
 
-  resources :users do
-    resources :games, only: ['create', 'index'] do
-      resources :rounds, only: ['create', 'index'] do
-        resources :photos, only: ['create']
-      end
+  match 'games/current_games', to: 'games#current_games', via: :get
+
+  resources :games, only: ['create'] do
+    resources :rounds, only: ['create', 'index'] do
+      resources :photos, only: ['create']
     end
   end
 

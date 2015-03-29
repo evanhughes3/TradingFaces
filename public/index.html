@@ -13,7 +13,7 @@
   <script src="/javascript/application.js"></script>
 
 </head>
-<body>
+  <body>
 
 <div id="navbar">
   <a href="#" id="new-game" class="thumbnail">
@@ -39,33 +39,31 @@
 </div>
 
 
-<!--   <input type="image" src="images/smile_icon.jpg" /> -->
+    <div id="video_container">
+      <video id="camera-stream" width="500" autoplay></video>
+      <button id="take-photo">Take Photo</button>
+    </div>
 
-  <div id="video_container">
-    <video id="camera-stream" width="500" autoplay></video>
-    <button id="take-photo">Take Photo</button>
-  </div>
-
-  <canvas id="canvas" style="display: none;">
-  </canvas>
+    <canvas id="canvas" style="display: none;">
+    </canvas>
 
 
-  <div class="output">
-    <img id="photo" alt="The screen capture will appear in this box.">
-    <button id="save-photo">Save Photo</button>
-  </div>
-
-
-  <div class="body_container" id="body_left">
-    <h1>Body Left</h1>
-  </div>
-
-  <div class="body_container" id="body_right">
-    <h1>Body Right</hi>
+    <div class="output">
+      <img id="photo" alt="The screen capture will appear in this box.">
+      <button id="save-photo">Save Photo</button>
     </div>
 
 
+    <div class="body_container" id="body_left">
+      <h1>Body Left</h1>
+    </div>
+
+    <div class="body_container" id="body_right">
+      <h1>Body Right</hi>
+    </div>
+    
+
 
   </body>
-  </html>
+</html>
 
