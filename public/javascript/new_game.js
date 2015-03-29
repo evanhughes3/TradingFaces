@@ -21,7 +21,7 @@ var renderUsers = function(data) {
 
 $(document).ready(function() {
 
-  $('.start_game').on('submit', function(event){
+  $('#new-game').on('click', function(event){
     console.log('winning');
     event.preventDefault();
     friends = getAllFriends();
