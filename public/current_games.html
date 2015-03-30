@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Trading Faces</title>
   <link href='http://fonts.googleapis.com/css?family=Megrim' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/app.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -23,8 +24,22 @@
       
     </div>
     
-    <script id="entry-template" type="text/x-handlebars-template">
-
+    <script id="current-games-template" type="text/x-handlebars-template">
+      {{#each games}}
+        <div class="row" id="game-{{id}}">
+          {{#each rounds}}
+            <div class="col-md-4" id="round-{{id}}">
+              {{#each photos}}
+                <img src="{{img_url}}" class="img-responsive"/>
+              {{/each}}
+              <p id="user-{{responder.id}}">Player: {{responder.full_name}}</p>
+              {{#if "rating > 0" }}
+              <p>Rating: {{rating}}</p>
+              {{/if}}
+            </div>
+          {{/each}}
+        </div>
+      {{/each}}
     </script>
   </body>
 </html>

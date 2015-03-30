@@ -29,7 +29,7 @@ Round.create(
 )
 
 Game.create(
-  winner_id: 1
+
 )
 
 Photo.create(
