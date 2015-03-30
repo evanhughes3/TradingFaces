@@ -14,7 +14,7 @@ class GamesController < ApplicationController
   end
 
   def current_games
-		games = current_user.get_current_games
+		games = current_user.get_current_games.reverse
   	render json: games, only: :id, :include => [{:users => {only: [:id, :full_name, :photo_url]}},
   																							{:rounds => {only: [:id, :rating], :include => [{:responder => {only: [:id, :full_name, :photo_url]}} , :photos]}},]
   end
