@@ -126,7 +126,7 @@ function createPhotoAjax (roundId, imageData) {
   });
   ajaxPhoto.done(function (serverData) {
     console.log('Successfully saved photo.');
-    $('#video_container').hide();
+    hideEverything();
     $savebutton.attr('data-round-id', '');
   });
 

@@ -1,5 +1,5 @@
-function getCurrentGames (argument) {
-
+function getCurrentGames (event) {
+		event.preventDefault();
 	  var ajaxCurrentGames = $.ajax({
 	  	url: '/games/current_games',
 	  });
@@ -11,5 +11,5 @@ function getCurrentGames (argument) {
 	  	var context = {games: gameData};
 	  	$('.main-content').append(template(context));
 	  });
-
+	  $(this).off();
 }
