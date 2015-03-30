@@ -11,7 +11,7 @@ function getCurrentGames (argument) {
 	  	var template = Handlebars.compile(source);
 	  	var context = {games: gameData};
 	  	$('.main-content').append(template(context));
-	  	console.log(gameData)
+	  	console.log(gameData);
 	  });
 
 }

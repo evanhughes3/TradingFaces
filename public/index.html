@@ -72,15 +72,33 @@
             <div class="row" id="game-{{id}}">
               {{#each rounds}}
                 <div class="col-md-4" id="round-{{id}}">
-                  {{#each photos}}
-                    <img src="{{img_url}}" class="img-responsive"/>
-                  {{/each}}
-                  <p id="user-{{responder.id}}">Player: {{responder.full_name}}</p>
+                  <div class="row">
+                    {{#each photos}}
+                      <div class="col-md-6">
+                        <img src="{{img_url}}" class="img-responsive img-rounded"/>
+                      </div>
+                    {{/each}}
                   {{#if "rating > 0" }}
-                  <p>Rating: {{rating}}</p>
+                    <p>Rating: {{rating}}</p>
                   {{/if}}
+                  </div>
                 </div>
               {{/each}}
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-5">
+                    <img src="{{users.0.photo_url}}" class="img-responsive img-rounded" />
+                    <p>{{users.0.full_name}}</p>
+                  </div>
+                  <div class="col-md-2">
+                    <h4>VS</h4>
+                  </div>
+                  <div class="col-md-5">
+                    <img src="{{users.2.photo_url}}" class="img-responsive img-rounded" />
+                    <p>{{users.2.full_name}}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           {{/each}}
         </script>
