@@ -11,5 +11,4 @@ function getCurrentGames (event) {
 	  	var context = {games: gameData};
 	  	$('.main-content').append(template(context));
 	  });
-	  $(this).off();
 }

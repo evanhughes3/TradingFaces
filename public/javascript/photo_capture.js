@@ -58,6 +58,7 @@ function openCamera() {
               savePhoto();
               stream.stop();
               event.preventDefault();
+              $(this).off();
             });
           },
           function (err) {
@@ -94,8 +95,9 @@ function takePicture(event) {
 
 function savePhoto (event) {
   var imageData = $('#photo').attr('src');
-  var roundId = $savebutton.data('round-id');
-  var opponentClass = $savebutton.data('opponent');
+  var roundId = $('#save-photo').attr('data-round-id');
+  var opponentClass = $('#save-photo').attr('data-opponent');
+  debugger
   if ( roundId ) {
     createPhotoAjax(roundId, imageData);
     $(this).off();
