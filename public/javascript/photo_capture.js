@@ -94,6 +94,7 @@ function takePicture(event) {
 
 function savePhoto (event) {
   var imageData = document.getElementById('photo').getAttribute('src');
+
   var ajaxResponse = $.ajax({
     // this url is hard coded & needs to be updated...
     url: 'games/1/rounds/1/photos',
@@ -104,6 +105,7 @@ function savePhoto (event) {
   ajaxResponse.done(function (serverData) {
     console.log('Successfully saved photo.')
     $('#video_container').hide();
+    
   });
 
   ajaxResponse.fail(function () {
