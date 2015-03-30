@@ -22,7 +22,11 @@ function getOldGames (event) {
   })
   .done(function(gameData) {
     console.log("success old games");
-    console.log(gameData)
+    $('.main-content').empty();
+      var source   = $("#games-template").html();
+      var template = Handlebars.compile(source);
+      var context = {games: gameData};
+      $('.main-content').append(template(context));
   })
   .fail(function() {
     console.log("error old games");
