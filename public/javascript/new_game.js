@@ -36,7 +36,6 @@ $(document).ready(function() {
 
   var createNewGame = $('.friends_to_challenge').on('click', '.friend_data form', function(event){
     event.preventDefault();
-    console.log('winning');
 
     var myUrl = this.action
     var opponent_class = event.target.id
