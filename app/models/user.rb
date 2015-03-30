@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
     self.games.select { |game| game.over? == false }
   end
 
+  def get_finished_games
+    self.games.select { |game| game.over? == true }
+  end
+
   private
 
   def provider_must_be_facebook

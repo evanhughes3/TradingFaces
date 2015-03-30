@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', to: 'sessions#create', via: :get
   match 'auth/failure', to: redirect('/'), via: :get
   match '/signout', to: 'sessions#destroy', as: 'signout', via: :get
-  
+
   get 'users/index'
   get 'users/show'
 
   match 'games/current_games', to: 'games#current_games', via: :get
+  match 'games/finished_games', to: 'games#finished_games', via: :get
 
   resources :games, only: ['create'] do
     resources :rounds, only: ['create', 'index'] do
