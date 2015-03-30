@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy', as: 'signout', via: :get
 
   match '/friends', to: 'users#friends', via: :get
+  match '/rounds/:id', to: 'rounds#update', via: :put
+
 
   get 'users/index'
   get 'users/show'
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
   match 'games/finished_games', to: 'games#finished_games', via: :get
 
   resources :games, only: ['create'] do
-    resources :rounds, only: ['create', 'index'] do
+    resources :rounds, only: ['create', 'index', 'update'] do
       resources :photos, only: ['create']
     end
   end
