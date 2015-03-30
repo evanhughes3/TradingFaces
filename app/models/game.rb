@@ -7,5 +7,5 @@ class Game < ActiveRecord::Base
   def over?
   	self.players.pluck('winner').include?(true) ? return true : return false
   end
-  
+
 end

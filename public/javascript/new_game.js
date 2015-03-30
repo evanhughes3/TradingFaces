@@ -40,12 +40,12 @@ $(document).ready(function() {
     debugger
 
     var myUrl = this.action
-    var user_class = event.target.id
+    var opponent_class = event.target.id
 
     $.ajax({
       url: myUrl,
       method: 'post',
-      data: { user_class: user_class }
+      data: { opponent_class: opponent_class }
     });
   });
 

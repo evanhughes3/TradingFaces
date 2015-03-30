@@ -14,10 +14,8 @@ class UsersController < ApplicationController
   end
 
   def friends
-    puts "*" * 50
-    puts "INSIDE FRIENDS"
-    p user = current_user
-    p friends = user.friends
+    user = current_user
+    friends = user.friends
     render json: friends
   end
 
