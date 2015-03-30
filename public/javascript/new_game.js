@@ -18,12 +18,18 @@ var getAllFriends = function() {
   });
 }
 
+var friendsOverlay = function () {
+  el = document.getElementById("friends-overlay");
+  el.style.visibility = (el.style.visibility == "visible") ?
+  "hidden" : "visible";
+}
+
 var renderUsers = function(data) {
   hideEverything();
   var context = { friends: data }
   var html = $('#friends_to_challenge_template').html();
   var friendsTemplate = Handlebars.compile(html);
-  $('.main-content').append(friendsTemplate(context));
+  $('#friends-overlay').append(friendsTemplate(context));
 }
 
 var startNewGameListener = function() {
@@ -31,7 +37,7 @@ var startNewGameListener = function() {
     event.preventDefault();
     var getFriends = getAllFriends();
 
-    // friendsOverlay();
+    friendsOverlay();
 
     getFriends.done(function(response){
       renderUsers(response);
