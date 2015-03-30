@@ -1,5 +1,5 @@
 * {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 
 #banner {
@@ -10,7 +10,6 @@ a {
   font-family: 'Megrim', cursive;
   font-weight: bold;
 }
-
 
 .thumbnail {
   width: 9%;
