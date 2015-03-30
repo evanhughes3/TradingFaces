@@ -8,7 +8,7 @@ class GamesController < ApplicationController
     game.players.create(game: game, user: current_user)
     game.players.create(game: game, user: opponent)
 
-  	round = current_user.rounds.create(game: game)
+  	round = opponent.rounds.create(game: game)
 
   	render json: {game: game, round: round}
   end
