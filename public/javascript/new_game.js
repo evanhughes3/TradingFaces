@@ -2,6 +2,7 @@ var hideEverything = function() {
   $('.main-content').empty()
   $('#video_container').hide();
   $('.output').hide();
+  closeCamera();
 }
 
 var turnOffClickListener = function(target, action) {
@@ -50,6 +51,7 @@ var appendVideoForPicture = function() {
   $('.main-content').empty();
   $('#video_container').show();
   $('.output').show();
+  openCamera();
 }
 
 var createNewGameListener = function() {
@@ -70,8 +72,3 @@ var createNewGameListener = function() {
     })
   });
 }
-
-$(document).ready(function() {
-  startNewGameListener();
-  createNewGameListener();
-});

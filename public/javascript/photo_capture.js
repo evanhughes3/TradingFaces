@@ -1,118 +1,110 @@
-(function() {
-  var width = 320;    // We will scale the photo width to this
-  var height = 0;     // This will be computed based on the input stream
+function openCamera() {
+  // Need to update to current HTML setup
+    var video = document.getElementById('camera-stream');
+    var canvas = document.getElementById('canvas');
+    var photo = document.getElementById('photo');
+    var startbutton = document.getElementById('take-photo');
+    var savebutton = document.getElementById('save-photo');
+    var width = 320;    // We will scale the photo width to this
+    var height = 0;     // This will be computed based on the input stream
+    var streaming = false;
 
-  var streaming = false;
+    navigator.getMedia = ( navigator.getUserMedia ||
+                           navigator.webkitGetUserMedia ||
+                           navigator.mozGetUserMedia ||
+                           navigator.msGetUserMedia);
 
-  var video = null;
-  var canvas = null;
-  var photo = null;
-  var startbutton = null;
-  var savebutton = null;
-
-  function startup() {
-    // Need to update to current HTML setup
-      video = document.getElementById('camera-stream');
-      canvas = document.getElementById('canvas');
-      photo = document.getElementById('photo');
-      startbutton = document.getElementById('take-photo');
-      savebutton = document.getElementById('save-photo');
-
-      navigator.getMedia = ( navigator.getUserMedia ||
-                             navigator.webkitGetUserMedia ||
-                             navigator.mozGetUserMedia ||
-                             navigator.msGetUserMedia);
-
-      navigator.getMedia(
-            {
-              video: true,
-            },
-            function(stream) {
-              if (navigator.mozGetUserMedia) {
-                video.mozSrcObject = stream;
-              } else {
-                var vendorURL = window.URL || window.webkitURL;
-                video.src = vendorURL.createObjectURL(stream);
-              }
-              video.play();
-              video.addEventListener('canplay', function(ev){
-                    if (!streaming) {
-                      height = video.videoHeight / (video.videoWidth/width);
-
-                      // Firefox currently has a bug where the height can't be read from
-                      // the video, so we will make assumptions if this happens.
-
-                      if (isNaN(height)) {
-                        height = width / (4/3);
-                      }
-
-                      video.setAttribute('width', width);
-                      video.setAttribute('height', height);
-                      canvas.setAttribute('width', width);
-                      canvas.setAttribute('height', height);
-                      streaming = true;
-                    }
-                  }, false);
-
-              startbutton.addEventListener('click', function(ev){
-                    takepicture();
-                    ev.preventDefault();
-                  }, false);
-
-              savebutton.addEventListener('click', savePhoto );
-            },
-            function(err) {
-              console.log("An error occured! " + err);
-              console.log("The computer does not have a camera.");
+    navigator.getMedia(
+          {
+            video: true,
+          },
+          function(stream) {
+            if (navigator.mozGetUserMedia) {
+              video.mozSrcObject = stream;
+            } else {
+              var vendorURL = window.URL || window.webkitURL;
+              video.src = vendorURL.createObjectURL(stream);
             }
-          );
-	clearphoto();
-  }
+            video.play();
+            video.addEventListener('canplay', function(ev){
+                  if (!streaming) {
+                    height = video.videoHeight / (video.videoWidth/width);
 
-  function clearphoto() {
-    var context = canvas.getContext('2d');
-    context.fillStyle = "#AAA";
-    context.fillRect(0, 0, canvas.width, canvas.height);
+                    // Firefox currently has a bug where the height can't be read from
+                    // the video, so we will make assumptions if this happens.
+
+                    if (isNaN(height)) {
+                      height = width / (4/3);
+                    }
+
+                    video.setAttribute('width', width);
+                    video.setAttribute('height', height);
+                    canvas.setAttribute('width', width);
+                    canvas.setAttribute('height', height);
+                    streaming = true;
+                  }
+                }, false);
+
+            startbutton.addEventListener('click', function(ev){
+                  takePicture();
+                  ev.preventDefault();
+                }, false);
+
+            savebutton.addEventListener('click', savePhoto );
+          },
+          function(err) {
+            console.log("An error occured! " + err);
+            console.log("The computer does not have a camera.");
+          }
+        );
+clearPhoto();
+}
+
+function clearPhoto() {
+  var context = canvas.getContext('2d');
+  context.fillStyle = "#AAA";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  var data = canvas.toDataURL('image/png');
+  photo.setAttribute('src', data);
+}
+
+function takePicture() {
+  var context = canvas.getContext('2d');
+  if (width && height) {
+    canvas.width = width;
+    canvas.height = height;
+    context.drawImage(video, 0, 0, width, height);
 
     var data = canvas.toDataURL('image/png');
     photo.setAttribute('src', data);
+  } else {
+    clearPhoto();
   }
+}
 
-  function takepicture() {
-    var context = canvas.getContext('2d');
-    if (width && height) {
-      canvas.width = width;
-      canvas.height = height;
-      context.drawImage(video, 0, 0, width, height);
+function savePhoto (event) {
+  event.preventDefault();
+  var imageData = document.getElementById('photo').getAttribute('src');
+  var ajaxResponse = $.ajax({
+    // this url is hard coded & needs to be updated...
+    url: 'games/1/rounds/1/photos',
+    type: 'post',
+    data: {image_data: imageData},
+  });
 
-      var data = canvas.toDataURL('image/png');
-      photo.setAttribute('src', data);
-    } else {
-      clearphoto();
-    }
-  }
+  ajaxResponse.done(function (serverData) {
+    console.log('Successfully saved photo.')
+    console.log(serverData);
+    $('#video_container').hide();
+  });
 
-  function savePhoto (event) {
-    event.preventDefault();
-    var imageData = document.getElementById('photo').getAttribute('src');
-    var ajaxResponse = $.ajax({
-      // this url is hard coded & needs to be updated...
-      url: 'games/1/rounds/1/photos',
-      type: 'post',
-      data: {image_data: imageData},
-    });
+  ajaxResponse.fail(function () {
+    console.log('Failed to save photo.')
+  });
 
-    ajaxResponse.done(function (serverData) {
-      console.log('Successfully saved photo.')
-      console.log(serverData);
-      $('#video_container').hide();
-    });
+}
 
-    ajaxResponse.fail(function () {
-      console.log('Failed to save photo.')
-    });
-
-  }
-
-  window.addEventListener('load', startup, false);
-})();
+function closeCamera () {
+  // body...
+}
