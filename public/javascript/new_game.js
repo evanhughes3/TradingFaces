@@ -37,16 +37,23 @@ $(document).ready(function() {
   var createNewGame = $('.friends_to_challenge').on('click', '.friend_data form', function(event){
     event.preventDefault();
     console.log('winning');
-    debugger
 
     var myUrl = this.action
     var opponent_class = event.target.id
 
-    $.ajax({
+    var request = $.ajax({
       url: myUrl,
       method: 'post',
       data: { opponent_class: opponent_class }
     });
+
+    request.done(function(){
+      console.log('WINNER WINNER CHICKEN MAKES A GAME');
+    });
+
+    request.fail(function(){
+      console.log('fail');
+    })
   });
 
 });
