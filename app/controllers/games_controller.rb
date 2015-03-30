@@ -1,16 +1,16 @@
 class GamesController < ApplicationController
 
   def create
-    puts "*" * 50
-    puts "inside create!"
-    puts params
-    puts parse_opponent_id(params["opponent_class"])
-  	# current_user = User.find(session[:user_id])
-  	# # competitor = ?
-  	# game = Game.create
-  	# round = current_user.rounds.create(game: game)
-  	# # rounds.players.create(user: competitor )
-  	# render json: {game: game, round: round}
+    opponent_id = parse_opponent_id(params["opponent_class"])
+  	opponent = User.find(opponent_id)
+
+  	game = Game.create
+    game.players.create(game: game, user: current_user)
+    game.players.create(game: game, user: opponent)
+
+  	round = current_user.rounds.create(game: game)
+
+  	render json: {game: game, round: round}
   end
 
   # def index

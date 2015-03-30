@@ -5,7 +5,7 @@ class Game < ActiveRecord::Base
   belongs_to :winner, class_name: 'User'
 
   def over?
-  	self.players.pluck('winner').include?(true) ? return true : return false
+  	return self.players.pluck('winner').include?(true) ? true : false
   end
 
 end
