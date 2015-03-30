@@ -11,6 +11,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="javascript/new_game.js"></script>
+  <script src="javascript/respond_to_round.js"></script>
   <script src="/javascript/index.js"></script>
   <script src="/javascript/photo_capture.js"></script>
   <script src="/javascript/current_games.js"></script>
@@ -22,7 +23,6 @@
 </head>
 <body>
   <div class="container">
-
     <div id="navbar">
       <a href="/friends" id="new-game" class="thumbnail">
         <img src="/images/smile_icon.png">New Game
@@ -43,7 +43,6 @@
       <a href="/signout" id="logout" class="thumbnail">
         <img src="/images/wink_icon.png">Logout
       </a>
-
     </div>
 
     <div class="main-content">
@@ -80,7 +79,7 @@
                     {{/each}}
                   </div>
                   {{#if photos}}
-                    <button class="respond-to">Respond</button>
+                    <button class="respond-to" link="/rounds/{{id}}/editg">Respond</button>
                   {{/if}}
                   {{#if rating }}
                     <p>Rating: {{rating}}</p>
