@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy', as: 'signout', via: :get
 
   match '/friends', to: 'users#friends', via: :get
-  match '/rounds/:id', to: 'rounds#update', via: :put
+  match '/rounds/:id/edit', to: 'rounds#update', via: :put
 
 
   get 'users/index'
