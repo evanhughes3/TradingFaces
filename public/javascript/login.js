@@ -17,5 +17,10 @@ $(document).ready(function() {
   //     console.log('winning');
   //   });
   // });
+ $('#facebook_button').hover(function() {
+   $('#landing-body').css('background-image', 'url(../images/tongue_icon.png)')
+ }, function() {
+   $('#landing-body').css('background-image', 'url(../images/wink_icon.png)')
+ });
 
 });
