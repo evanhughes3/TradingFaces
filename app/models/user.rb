@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   end
 
   def get_finished_games
-    self.games.select { |game| game.over? == true }
+    self.games.select { |game| game.over? }
   end
 
   private
