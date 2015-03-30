@@ -1,6 +1,10 @@
-$(document).ready(function(){
+var respondToChallenge = function() {
   $('.main-content').on('click', '.row div .respond-to', function(){
-    debugger
-    console.log('winning')
+    hideEverything();
+    appendVideoForPicture();
   });
+}
+
+$(document).ready(function(){
+  respondToChallenge();
 });
