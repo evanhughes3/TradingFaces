@@ -52,6 +52,7 @@ var appendVideoForPicture = function() {
   $('.main-content').empty();
   $('#video_container').show();
   $('.output').show();
+  openCamera();
 }
 
 var createNewGameListener = function() {
@@ -72,8 +73,3 @@ var createNewGameListener = function() {
     })
   });
 }
-
-$(document).ready(function() {
-  startNewGameListener();
-  createNewGameListener();
-});
