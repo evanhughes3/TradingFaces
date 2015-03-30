@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'users/show'
 
   match 'games/current_games', to: 'games#current_games', via: :get
+  match 'games/finished_games', to: 'games#finished_games', via: :get
 
   resources :games, only: ['create'] do
     resources :rounds, only: ['create', 'index'] do
