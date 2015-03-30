@@ -7,10 +7,16 @@ class UsersController < ApplicationController
 			redirect_to root_path
 		end
 	end
-  
+
   def show
   	user = User.find(session[:user_id])
   	render json: user
+  end
+
+  def friends
+    user = current_user
+    friends = user.friends
+    render json: friends
   end
 
 end
