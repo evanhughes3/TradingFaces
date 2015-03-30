@@ -12,11 +12,10 @@ Rails.application.routes.draw do
   match 'games/current_games', to: 'games#current_games', via: :get
   match 'games/finished_games', to: 'games#finished_games', via: :get
 
-  resources :games, only: ['create'] do
-    resources :rounds, only: ['create', 'index'] do
-      resources :photos, only: ['create']
-    end
+  resources :rounds, only: ['create', 'index', 'update'] do
+    resources :photos, only: ['create']
   end
+  resources :games, only: ['create']
 
   root 'users#index'
 

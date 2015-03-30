@@ -93,21 +93,54 @@ function takePicture(event) {
 }
 
 function savePhoto (event) {
-  var imageData = document.getElementById('photo').getAttribute('src');
-  var ajaxResponse = $.ajax({
-    // this url is hard coded & needs to be updated...
-    url: 'games/1/rounds/1/photos',
+  var imageData = $('#photo').attr('src');
+  var roundId = $('#save-photo').data('round-id');
+  var opponentClass = $('#save-photo').data('opponent');
+  if ( roundId ) {
+    createPhotoAjax(roundId, imageData);
+  } else {
+    var ajaxGame = $.ajax({
+      url: '/games',
+      type: 'post',
+      data: {opponent_class: opponentClass},
+    });
+
+    ajaxGame.done(function (gameData) {
+      roundId = gameData.round.id;
+      createPhotoAjax(roundId, imageData);
+    });
+
+    ajaxGame.fail(function () {
+      console.log("Failed to create a game.")
+    });
+  }
+}
+
+function createPhotoAjax (roundId, imageData) {
+  var ajaxPhoto = $.ajax({
+    url: '/rounds/' + roundId + '/photos',
     type: 'post',
     data: {image_data: imageData},
   });
-
-  ajaxResponse.done(function (serverData) {
+  ajaxPhoto.done(function (serverData) {
     console.log('Successfully saved photo.')
     $('#video_container').hide();
+    $('#save-photo').attr('data-round-id', '');
   });
 
-  ajaxResponse.fail(function () {
+  ajaxPhoto.fail(function () {
     console.log('Failed to save photo.')
   });
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
