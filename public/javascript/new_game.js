@@ -31,7 +31,7 @@ var startNewGameListener = function() {
     event.preventDefault();
     var getFriends = getAllFriends();
 
-    friendsOverlay();
+    // friendsOverlay();
 
     getFriends.done(function(response){
       renderUsers(response);
