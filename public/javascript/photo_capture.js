@@ -6,7 +6,7 @@ var video = null;
 var canvas = null;
 var photo = null;
 var startbutton = null;
-var savebutton = null;
+var $savebutton = null;
 
 function openCamera() {
   // Need to update to current HTML setup
@@ -14,7 +14,7 @@ function openCamera() {
     canvas = document.getElementById('canvas');
     photo = document.getElementById('photo');
     startbutton = document.getElementById('take-photo');
-    savebutton = document.getElementById('save-photo');
+    $savebutton = $('#save-photo');
 
     navigator.getMedia = ( navigator.getUserMedia ||
                            navigator.webkitGetUserMedia ||
@@ -54,11 +54,12 @@ function openCamera() {
 
             startbutton.addEventListener('click', takePicture, false);
 
-            savebutton.addEventListener('click', function (event) {
+            $('#save-photo').on('click', function (event) {
               savePhoto();
               stream.stop();
               event.preventDefault();
-            }, false );
+              $(this).off();
+            });
           },
           function (err) {
             console.log("An error occured! " + err);
@@ -94,10 +95,12 @@ function takePicture(event) {
 
 function savePhoto (event) {
   var imageData = $('#photo').attr('src');
-  var roundId = $('#save-photo').data('round-id');
-  var opponentClass = $('#save-photo').data('opponent');
+  var roundId = $('#save-photo').attr('data-round-id');
+  var opponentClass = $('#save-photo').attr('data-opponent');
+  debugger
   if ( roundId ) {
     createPhotoAjax(roundId, imageData);
+    $(this).off();
   } else {
     var ajaxGame = $.ajax({
       url: '/games',
@@ -108,10 +111,11 @@ function savePhoto (event) {
     ajaxGame.done(function (gameData) {
       roundId = gameData.round.id;
       createPhotoAjax(roundId, imageData);
+      $(this).off();
     });
 
     ajaxGame.fail(function () {
-      console.log("Failed to create a game.")
+      console.log("Failed to create a game.");
     });
   }
 }
@@ -123,13 +127,13 @@ function createPhotoAjax (roundId, imageData) {
     data: {image_data: imageData},
   });
   ajaxPhoto.done(function (serverData) {
-    console.log('Successfully saved photo.')
-    $('#video_container').hide();
-    $('#save-photo').attr('data-round-id', '');
+    console.log('Successfully saved photo.');
+    hideEverything();
+    $savebutton.attr('data-round-id', '');
   });
 
   ajaxPhoto.fail(function () {
-    console.log('Failed to save photo.')
+    console.log('Failed to save photo.');
   });
 }
 
