@@ -18,7 +18,8 @@ var getAllFriends = function() {
   });
 }
 
-var friendsOverlay = function () {
+var friendsOverlay = function() {
+  $('.friend-box').empty();
   el = document.getElementById("friends-overlay");
   el.style.visibility = (el.style.visibility == "visible") ?
   "hidden" : "visible";
@@ -29,7 +30,7 @@ var renderUsers = function(data) {
   var context = { friends: data }
   var html = $('#friends_to_challenge_template').html();
   var friendsTemplate = Handlebars.compile(html);
-  $('.start-game').append(friendsTemplate(context));
+  $('.friend-box').append(friendsTemplate(context));
 }
 
 var startNewGameListener = function() {
@@ -60,6 +61,7 @@ var createNewGameListener = function() {
 
     var opponentClass = event.target.id
     $('#save-photo').attr('data-opponent', opponentClass );
+
     friendsOverlay();
     appendVideoForPicture();
   });
