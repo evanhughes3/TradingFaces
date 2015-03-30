@@ -35,6 +35,7 @@ var startNewGameListener = function() {
       renderUsers(response);
       turnOffClickListener('.start_game', 'submit');
     });
+    $(this).off();
   });
 }
 
@@ -53,5 +54,6 @@ var createNewGameListener = function() {
     $('#save-photo').attr('data-opponent', opponentClass );
 
     appendVideoForPicture();
+    $(this).off();
   });
 }
