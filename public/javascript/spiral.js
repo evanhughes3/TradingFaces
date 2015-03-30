@@ -1,15 +1,13 @@
 $(document).ready(function() {
-  console.log("Inside")
-  $.ajax({
-    url: '',
-    dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-    data: {param1: 'value1'},
-  })
-  .done(function() {
-    console.log("success");
-  })
-  .fail(function() {
-    console.log("error");
-  })
-
+  $('#save-photo').click(function(event) {
+  console.log("ahahah")
+    showSpiral();
+  });
 });
+
+var showSpiral = function() {
+  $('loading-gif').addClass("fa fa-cog fa-spin")
+}
+
+var hideSpiral = function() {
+}
