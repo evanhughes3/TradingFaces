@@ -41,7 +41,7 @@ var startNewGameListener = function() {
 
     getFriends.done(function(response){
       renderUsers(response);
-      turnOffClickListener('.start_game', 'submit');
+      turnOffClickListener('.start-game', 'submit');
     });
   });
 }
@@ -54,12 +54,13 @@ var appendVideoForPicture = function() {
 }
 
 var createNewGameListener = function() {
-  $('.main-content').on('click', '.friend_data form', function(event){
+  $('.start-game').on('click', '.friend_data form', function(event){
     event.preventDefault();
+
 
     var opponentClass = event.target.id
     $('#save-photo').attr('data-opponent', opponentClass );
-
+    friendsOverlay();
     appendVideoForPicture();
   });
 }
