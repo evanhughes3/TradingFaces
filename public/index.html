@@ -52,7 +52,9 @@
 
     <div id="friends-overlay">
       <div class="start-game">
-        <script type="text/x=handlebars-template" id="friends_to_challenge_template">
+      </div>
+    </div>
+        <script type="text/xhandlebars-template" id="friends_to_challenge_template">
             <h2>Pick a Friend</h2>
               {{#each friends}}
                 <div id="friend_{{id}}">
@@ -65,10 +67,7 @@
                   </div>
                 </div>
               {{/each}}
-          </div>
         </script>
-      </div>
-    </div>
 
       <script id="games-template" type="text/x-handlebars-template">
           {{#each games}}

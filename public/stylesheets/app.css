@@ -1,7 +1,7 @@
-* {
+/** {
   border: 1px solid black;
 }
-
+*/
 #banner {
   height:25%;
 }
@@ -73,7 +73,7 @@ img.thumbnail {
 #friends-overlay {
   visibility: hidden;
   position: absolute;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.7);
   left: 0px;
   top: 0px;
   width: 100%;
@@ -85,9 +85,9 @@ img.thumbnail {
 #friends-overlay .start-game {
   width: 50%;
   margin-top: 10%;
+  margin-left: 5%;
   border-radius: 10px;
   height: 50%;
   width: 90%;
   background-color: #fff;
-  text-align: center;
 }

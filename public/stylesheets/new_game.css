@@ -3,12 +3,13 @@
 }
 
 .friend_box {
-  height: 200px;
+  /*height: 200px;*/
 }
 
 .thumbnail  {
   max-width: 12%;
   float: left;
+  margin-left: 2%;
 }
 
 .friend_data {
