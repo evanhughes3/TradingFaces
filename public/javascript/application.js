@@ -2,4 +2,5 @@
 $(document).ready(function (argument) {
   getUser();
   $('#current-games').click( getCurrentGames );
+  $('#old-games').click( getOldGames );
 });
