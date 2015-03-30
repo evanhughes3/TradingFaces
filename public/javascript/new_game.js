@@ -38,14 +38,6 @@ var startNewGameListener = function() {
   });
 }
 
-var createNewGame = function(myUrl, opponentClass) {
-  return $.ajax({
-    url: myUrl,
-    method: 'post',
-    data: { opponent_class: opponentClass }
-  });
-}
-
 var appendVideoForPicture = function() {
   $('.main-content').empty();
   $('#video_container').show();
@@ -57,17 +49,9 @@ var createNewGameListener = function() {
   $('.main-content').on('click', '.friend_data form', function(event){
     event.preventDefault();
 
-    var myUrl = this.action
     var opponentClass = event.target.id
+    $('#save-photo').attr('data-opponent', opponentClass );
 
-    var getNewGame = createNewGame(myUrl, opponentClass)
-
-    getNewGame.done(function(){
-      appendVideoForPicture();
-    });
-
-    getNewGame.fail(function(){
-      console.log('creating game fails');
-    })
+    appendVideoForPicture();
   });
 }

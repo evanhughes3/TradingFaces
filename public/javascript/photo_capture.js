@@ -93,21 +93,55 @@ function takePicture(event) {
 }
 
 function savePhoto (event) {
-  var imageData = document.getElementById('photo').getAttribute('src');
-  var ajaxResponse = $.ajax({
-    // this url is hard coded & needs to be updated...
-    url: 'games/1/rounds/1/photos',
-    type: 'post',
-    data: {image_data: imageData},
-  });
+  var imageData = $('#photo').attr('src');
+  var roundId = $('#save-photo').data('round-id');
+  var gameId = $('#save-photo').data('game-id');
+  var opponentClass = $('#save-photo').data('opponent');
+  if ( roundId ) {
+    createPhotoAjax(gameId, roundId, imageData);
+  } else {
+    var ajaxGame = $.ajax({
+      url: '/games',
+      type: 'post',
+      data: {opponent_class: opponentClass},
+    });
 
-  ajaxResponse.done(function (serverData) {
+    ajaxGame.done(function (gameData) {
+      gameId = gameData.game.id;
+      roundId = gameData.round.id;
+      createPhotoAjax(gameId, roundId, imageData);
+    });
+
+    ajaxGame.fail(function () {
+      console.log("Failed to create a game.")
+    });
+  }
+}
+
+function createPhotoAjax (gameId, roundId, imageData) {
+  var ajaxPhoto = $.ajax({
+    url: 'games/' + gameId + '/rounds/' + roundId + '/photos',
+    type: 'post',
+    data: {image_data: imageData}, 
+  });
+  ajaxPhoto.done(function (serverData) {
     console.log('Successfully saved photo.')
     $('#video_container').hide();
   });
 
-  ajaxResponse.fail(function () {
+  ajaxPhoto.fail(function () {
     console.log('Failed to save photo.')
   });
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
