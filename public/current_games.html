@@ -30,9 +30,12 @@
           {{#each rounds}}
             <div class="col-md-4" id="round-{{id}}">
               {{#each photos}}
-                <img src="{{img_url}}" />
+                <img src="{{img_url}}" class="img-responsive"/>
               {{/each}}
-              <p id="user-{{responder.id}}">{{responder.full_name}}</p>
+              <p id="user-{{responder.id}}">Player: {{responder.full_name}}</p>
+              {{#if "rating > 0" }}
+              <p>Rating: {{rating}}</p>
+              {{/if}}
             </div>
           {{/each}}
         </div>
