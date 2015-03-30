@@ -11,7 +11,7 @@ a {
   font-weight: bold;
 }
 
-.thumbnail {
+#navbar .thumbnail {
   width: 9%;
   height: 9%;
   text-align: center;
@@ -65,4 +65,8 @@ display: none;
   display: none;
 }
 
+img.thumbnail {
+  width: 10%;
+  height: auto;
+}
 
