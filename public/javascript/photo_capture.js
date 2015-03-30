@@ -103,7 +103,6 @@ function savePhoto (event) {
 
   ajaxResponse.done(function (serverData) {
     console.log('Successfully saved photo.')
-    console.log(serverData);
     $('#video_container').hide();
   });
 
