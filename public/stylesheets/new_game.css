@@ -1,0 +1,17 @@
+.main-content {
+  clear: both;
+}
+
+.friend_box {
+  height: 200px;
+}
+
+.thumbnail  {
+  max-width: 12%;
+  float: left;
+}
+
+.friend_data {
+  margin: 1em;
+  float: left;
+}
