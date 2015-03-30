@@ -25,7 +25,12 @@
   text-align: center;
   margin-left: 4%;
   font-family: 'Megrim', cursive;
-  font-size: 150%;
+  font-size: 50px;
+}
+
+h1{
+  font-size: 180%;
+
 }
 
 
