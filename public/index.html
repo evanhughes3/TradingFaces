@@ -10,8 +10,10 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-  <script src="javascript/new_game.js"></script>
+  <script src="/javascript/challengelightbox.js"></script>
+  <script src="/javascript/new_game.js"></script>
   <script src="javascript/respond_to_round.js"></script>
+
   <script src="/javascript/index.js"></script>
   <script src="/javascript/photo_capture.js"></script>
   <script src="/javascript/current_games.js"></script>
@@ -48,23 +50,24 @@
     <div class="main-content">
     </div>
 
-    <div class="start-game">
-      <script type="text/x=handlebars-template" id="friends_to_challenge_template">
-          <h2>Pick a Friend</h2>
-            {{#each friends}}
-              <div id="friend_{{id}}">
-                <img class="thumbnail" src="{{photo_url}}">
-                <div class="friend_data">
-                  <h3>{{full_name}}</h3>
-                  <form action="/games">
-                    <input type="submit" value="Challenge!" id="user_{{id}}" />
-                  </form>
-                </div>
-              </div>
-            {{/each}}
-        </div>
-      </script>
+    <div id="friends-overlay">
+      <div class="start-game">
+      </div>
     </div>
+        <script type="text/xhandlebars-template" id="friends_to_challenge_template">
+            <h2>Pick a Friend</h2>
+              {{#each friends}}
+                <div id="friend_{{id}}">
+                  <img class="thumbnail" src="{{photo_url}}">
+                  <div class="friend_data">
+                    <h3>{{full_name}}</h3>
+                    <form action="/games">
+                      <input type="submit" value="Challenge!" id="user_{{id}}" />
+                    </form>
+                  </div>
+                </div>
+              {{/each}}
+        </script>
 
       <script id="games-template" type="text/x-handlebars-template">
           {{#each games}}

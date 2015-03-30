@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('#new-game').children().hover(function(){
-    $(this).attr("src", "../images/wink_icon_centered.png");
+    $(this).attr("src", "../images/wink_icon.png");
     }, function() {
     $(this).attr("src", "../images/smile_icon.png");
   })
