@@ -19,4 +19,8 @@ class GamesController < ApplicationController
   	render json: games.to_json(include: :users)
   end
 
+  def parse_user_id(user_class)
+    user_class.split('_').last.to_i
+  end
+
 end

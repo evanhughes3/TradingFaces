@@ -34,9 +34,19 @@ var startNewGameListener = function() {
 $(document).ready(function() {
   startNewGameListener();
 
-  $('.friends_to_challenge').on('click', '.friend_data form', function(event){
+  var createNewGame = $('.friends_to_challenge').on('click', '.friend_data form', function(event){
     event.preventDefault();
     console.log('winning');
+    debugger
+
+    var myUrl = this.action
+    var user_class = event.target.id
+
+    $.ajax({
+      url: myUrl,
+      method: 'post',
+      data: { user_class: user_class }
+    });
   });
 
 });
