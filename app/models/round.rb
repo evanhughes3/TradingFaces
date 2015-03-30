@@ -4,7 +4,7 @@ class Round < ActiveRecord::Base
   belongs_to :responder, class_name: 'User'
 
   validates :game_id, :rating, presence: true
-  validates :rating, numericality: { only_integer: true, less_than_or_equal_to: 5 }
+  validates :rating, numericality: { only_integer: true, less_than_or_equal_to: 100 }
 
   # custom validation: it can only be created if there's 0 or 1 other rounds with the same game_id
   def compare_photos
