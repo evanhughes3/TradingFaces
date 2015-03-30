@@ -49,22 +49,24 @@
     <div class="main-content">
     </div>
 
-    <div class="start-game">
-      <script type="text/x=handlebars-template" id="friends_to_challenge_template">
-          <h2>Pick a Friend</h2>
-            {{#each friends}}
-              <div id="friend_{{id}}">
-                <img class="thumbnail" src="{{photo_url}}">
-                <div class="friend_data">
-                  <h3>{{full_name}}</h3>
-                  <form action="/games">
-                    <input type="submit" value="Challenge!" id="user_{{id}}" />
-                  </form>
+    <div id="friends-overlay">
+      <div class="start-game">
+        <script type="text/x=handlebars-template" id="friends_to_challenge_template">
+            <h2>Pick a Friend</h2>
+              {{#each friends}}
+                <div id="friend_{{id}}">
+                  <img class="thumbnail" src="{{photo_url}}">
+                  <div class="friend_data">
+                    <h3>{{full_name}}</h3>
+                    <form action="/games">
+                      <input type="submit" value="Challenge!" id="user_{{id}}" />
+                    </form>
+                  </div>
                 </div>
-              </div>
-            {{/each}}
-        </div>
-      </script>
+              {{/each}}
+          </div>
+        </script>
+      </div>
     </div>
 
       <script id="games-template" type="text/x-handlebars-template">

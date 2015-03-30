@@ -70,3 +70,21 @@ img.thumbnail {
   height: auto;
 }
 
+#friends-overlay {
+  visibility: hidden;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 1000;
+}
+
+#friends-overlay .start-game {
+  width: 50%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 5%;
+  text-align: center;
+}

@@ -1,4 +1,4 @@
-var hideEverything = function() {
+ var hideEverything = function() {
   $('.main-content').empty()
   $('#video_container').hide();
   $('.output').hide();
@@ -30,6 +30,8 @@ var startNewGameListener = function() {
   $('#new-game').on('click', function(event){
     event.preventDefault();
     var getFriends = getAllFriends();
+
+    friendsOverlay();
 
     getFriends.done(function(response){
       renderUsers(response);
