@@ -13,81 +13,103 @@
   <script src="javascript/new_game.js"></script>
   <script src="/javascript/index.js"></script>
   <script src="/javascript/photo_capture.js"></script>
+  <script src="/javascript/current_games.js"></script>
+  <script src="/javascript/old_games.js"></script>
   <script src="/javascript/application.js"></script>
 
+
 </head>
-  <body>
+<body>
+  <div class="container">
 
-<div id="navbar">
-  <a href="/friends" id="new-game" class="thumbnail">
-    <img src="/images/smile_icon.png">New Game
-  </a>
+    <div id="navbar">
+      <a href="/friends" id="new-game" class="thumbnail">
+        <img src="/images/smile_icon.png">New Game
+      </a>
 
-  <a href="#" id="current-game" class="thumbnail">
-    <img src="/images/tongue_icon.png">Current Games
-  </a>
+      <a href="#" id="current-games" class="thumbnail">
+        <img src="/images/tongue_icon.png">Current Games
+      </a>
 
-  <div id="logo">
-    <h1>Trading Faces</h1>
-  </div>
+      <div id="logo">
+        <h1>Trading Faces</h1>
+      </div>
 
-  <a href="#" id="old-games" class="thumbnail">
-    <img src="/images/whistle_icon.png">Old Games
-  </a>
+      <a href="#" id="old-games" class="thumbnail">
+        <img src="/images/whistle_icon.png">Old Games
+      </a>
 
-  <a href="#" id="logout" class="thumbnail">
-    <img src="/images/wink_icon.png">Logout
-  </a>
+      <a href="/signout" id="logout" class="thumbnail">
+        <img src="/images/wink_icon.png">Logout
+      </a>
 
-</div>
+    </div>
 
-<div class="friends_to_challenge">
-</div>
+    <div class="main-content">
+    </div>
 
-<div class="start-game">
-  <script type="text/x=handlebars-template" id="friends_to_challenge_template">
-      <h2>Pick a Friend</h2>
-        {{#each friends}}
-          <div id="friend_{{id}}">
-            <img class="thumbnail" src="{{photo_url}}">
-            <div class="friend_data">
-              <h3>{{full_name}}</h3>
-              <form action="/games">
-                <input type="submit" value="Challenge!" id="user_{{id}}" />
-              </form>
+    <div class="start-game">
+      <script type="text/x=handlebars-template" id="friends_to_challenge_template">
+          <h2>Pick a Friend</h2>
+            {{#each friends}}
+              <div id="friend_{{id}}">
+                <img class="thumbnail" src="{{photo_url}}">
+                <div class="friend_data">
+                  <h3>{{full_name}}</h3>
+                  <form action="/games">
+                    <input type="submit" value="Challenge!" id="user_{{id}}" />
+                  </form>
+                </div>
+              </div>
+            {{/each}}
+        </div>
+      </script>
+    </div>
+
+      <script id="games-template" type="text/x-handlebars-template">
+          {{#each games}}
+            <div class="row" id="game-{{id}}">
+              {{#each rounds}}
+                <div class="col-md-4" id="round-{{id}}">
+                  {{#each photos}}
+                    <img src="{{img_url}}" class="img-responsive"/>
+                  {{/each}}
+                  <p id="user-{{responder.id}}">Player: {{responder.full_name}}</p>
+                  {{#if "rating > 0" }}
+                  <p>Rating: {{rating}}</p>
+                  {{/if}}
+                </div>
+              {{/each}}
             </div>
-          </div>
-        {{/each}}
+          {{/each}}
+        </script>
+
+
+        <div id="video_container">
+          <video id="camera-stream" width="500" autoplay></video>
+          <button id="take-photo">Take Photo</button>
+        </div>
+
+        <canvas id="canvas" style="display: none;">
+        </canvas>
+
+
+        <div class="output">
+          <img id="photo" alt="The screen capture will appear in this box.">
+          <button id="save-photo">Save Photo</button>
+        </div>
+
+
+        <div class="body_container" id="body_left">
+          <h1>Body Left</h1>
+        </div>
+
+        <div class="body_container" id="body_right">
+          <h1>Body Right</hi>
+        </div>
+
+
     </div>
-  </script>
-</div>
-
-
-    <div id="video_container">
-      <video id="camera-stream" width="500" autoplay></video>
-      <button id="take-photo">Take Photo</button>
-    </div>
-
-    <canvas id="canvas" style="display: none;">
-    </canvas>
-
-
-    <div class="output">
-      <img id="photo" alt="The screen capture will appear in this box.">
-      <button id="save-photo">Save Photo</button>
-    </div>
-
-
-    <div class="body_container" id="body_left">
-      <h1>Body Left</h1>
-    </div>
-
-    <div class="body_container" id="body_right">
-      <h1>Body Right</hi>
-    </div>
-
-
-
   </body>
 </html>
 

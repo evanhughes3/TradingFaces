@@ -13,10 +13,11 @@ var getAllFriends = function() {
 }
 
 var renderUsers = function(data) {
+  $('.main-content').empty();
   var context = { friends: data }
   var html = $('#friends_to_challenge_template').html();
   var friendsTemplate = Handlebars.compile(html);
-  $('.friends_to_challenge').append(friendsTemplate(context));
+  $('.main-content').append(friendsTemplate(context));
 }
 
 var startNewGameListener = function() {
