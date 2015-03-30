@@ -1,3 +1,9 @@
+var hideEverything = function() {
+  $('.main-content').empty()
+  $('#video_container').hide();
+  $('.output').hide();
+}
+
 var turnOffClickListener = function(target, action) {
   $(target).off(action)
   $(target).on(action, function(event){
@@ -13,7 +19,7 @@ var getAllFriends = function() {
 }
 
 var renderUsers = function(data) {
-  $('.main-content').empty();
+  hideEverything();
   var context = { friends: data }
   var html = $('#friends_to_challenge_template').html();
   var friendsTemplate = Handlebars.compile(html);
@@ -23,39 +29,49 @@ var renderUsers = function(data) {
 var startNewGameListener = function() {
   $('#new-game').on('click', function(event){
     event.preventDefault();
-    friends = getAllFriends();
+    var getFriends = getAllFriends();
 
-    friends.done(function(response){
+    getFriends.done(function(response){
       renderUsers(response);
       turnOffClickListener('.start_game', 'submit');
     });
   });
 }
 
-$(document).ready(function() {
-  startNewGameListener();
+var createNewGame = function(myUrl, opponentClass) {
+  return $.ajax({
+    url: myUrl,
+    method: 'post',
+    data: { opponent_class: opponentClass }
+  });
+}
 
-  var createNewGame = $('.main-content').on('click', '.friend_data form', function(event){
+var appendVideoForPicture = function() {
+  $('.main-content').empty();
+  $('#video_container').show();
+  $('.output').show();
+}
+
+var createNewGameListener = function() {
+  $('.main-content').on('click', '.friend_data form', function(event){
     event.preventDefault();
 
     var myUrl = this.action
-    var opponent_class = event.target.id
+    var opponentClass = event.target.id
 
-    var request = $.ajax({
-      url: myUrl,
-      method: 'post',
-      data: { opponent_class: opponent_class }
+    var getNewGame = createNewGame(myUrl, opponentClass)
+
+    getNewGame.done(function(){
+      appendVideoForPicture();
     });
 
-    request.done(function(){
-      console.log('WINNER WINNER CHICKEN MAKES A GAME');
-      $('.main-content').empty();
-      $('#video_container').show();
-    });
-
-    request.fail(function(){
-      console.log('fail');
+    getNewGame.fail(function(){
+      console.log('creating game fails');
     })
   });
+}
 
+$(document).ready(function() {
+  startNewGameListener();
+  createNewGameListener();
 });
