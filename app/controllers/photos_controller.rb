@@ -2,7 +2,6 @@ class PhotosController < ApplicationController
 
 	def create
 		round = Round.find(params[:round_id])
-		game = Game.find(params[:game_id])
 		photo = Photo.create_new_photo(params[:image_data], round, current_user )
 		if round.photos.length == 2
 			round.compare_photos
