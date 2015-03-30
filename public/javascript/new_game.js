@@ -44,7 +44,6 @@ var startNewGameListener = function() {
       renderUsers(response);
       turnOffClickListener('.start-game', 'submit');
     });
-    $(this).off();
   });
 }
 
