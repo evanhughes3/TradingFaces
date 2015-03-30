@@ -95,10 +95,9 @@ function takePicture(event) {
 function savePhoto (event) {
   var imageData = $('#photo').attr('src');
   var roundId = $('#save-photo').data('round-id');
-  var gameId = $('#save-photo').data('game-id');
   var opponentClass = $('#save-photo').data('opponent');
   if ( roundId ) {
-    createPhotoAjax(gameId, roundId, imageData);
+    createPhotoAjax(roundId, imageData);
   } else {
     var ajaxGame = $.ajax({
       url: '/games',
@@ -107,9 +106,8 @@ function savePhoto (event) {
     });
 
     ajaxGame.done(function (gameData) {
-      gameId = gameData.game.id;
       roundId = gameData.round.id;
-      createPhotoAjax(gameId, roundId, imageData);
+      createPhotoAjax(roundId, imageData);
     });
 
     ajaxGame.fail(function () {
@@ -118,15 +116,16 @@ function savePhoto (event) {
   }
 }
 
-function createPhotoAjax (gameId, roundId, imageData) {
+function createPhotoAjax (roundId, imageData) {
   var ajaxPhoto = $.ajax({
-    url: 'games/' + gameId + '/rounds/' + roundId + '/photos',
+    url: '/rounds/' + roundId + '/photos',
     type: 'post',
-    data: {image_data: imageData}, 
+    data: {image_data: imageData},
   });
   ajaxPhoto.done(function (serverData) {
     console.log('Successfully saved photo.')
     $('#video_container').hide();
+    $('#save-photo').attr('data-round-id', '');
   });
 
   ajaxPhoto.fail(function () {
