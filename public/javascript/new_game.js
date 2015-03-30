@@ -2,7 +2,6 @@ var hideEverything = function() {
   $('.main-content').empty()
   $('#video_container').hide();
   $('.output').hide();
-  closeCamera();
 }
 
 var turnOffClickListener = function(target, action) {

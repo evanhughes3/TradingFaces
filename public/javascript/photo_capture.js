@@ -18,7 +18,7 @@ function openCamera() {
           {
             video: true,
           },
-          function(stream) {
+          function (stream) {
             if (navigator.mozGetUserMedia) {
               video.mozSrcObject = stream;
             } else {
@@ -45,14 +45,15 @@ function openCamera() {
                   }
                 }, false);
 
-            startbutton.addEventListener('click', function(ev){
-                  takePicture();
-                  ev.preventDefault();
-                }, false);
+            startbutton.addEventListener('click', takePicture, false);
 
-            savebutton.addEventListener('click', savePhoto );
+            savebutton.addEventListener('click', function (event) {
+              savePhoto();
+              stream.stop();
+              event.preventDefault();
+            }, false );
           },
-          function(err) {
+          function (err) {
             console.log("An error occured! " + err);
             console.log("The computer does not have a camera.");
           }
@@ -69,7 +70,8 @@ function clearPhoto() {
   photo.setAttribute('src', data);
 }
 
-function takePicture() {
+function takePicture(event) {
+  event.preventDefault();
   var context = canvas.getContext('2d');
   if (width && height) {
     canvas.width = width;
@@ -84,7 +86,6 @@ function takePicture() {
 }
 
 function savePhoto (event) {
-  event.preventDefault();
   var imageData = document.getElementById('photo').getAttribute('src');
   var ajaxResponse = $.ajax({
     // this url is hard coded & needs to be updated...
@@ -103,8 +104,4 @@ function savePhoto (event) {
     console.log('Failed to save photo.')
   });
 
-}
-
-function closeCamera () {
-  // body...
 }
