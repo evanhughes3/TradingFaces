@@ -35,7 +35,7 @@ var startNewGameListener = function() {
 $(document).ready(function() {
   startNewGameListener();
 
-  var createNewGame = $('.friends_to_challenge').on('click', '.friend_data form', function(event){
+  var createNewGame = $('.main-content').on('click', '.friend_data form', function(event){
     event.preventDefault();
 
     var myUrl = this.action
@@ -49,6 +49,8 @@ $(document).ready(function() {
 
     request.done(function(){
       console.log('WINNER WINNER CHICKEN MAKES A GAME');
+      $('.main-content').empty();
+      $('#video_container').show();
     });
 
     request.fail(function(){
