@@ -1,13 +1,20 @@
+var width = 320;    // We will scale the photo width to this
+var height = 0;     // This will be computed based on the input stream
+var streaming = false;
+
+var video = null;
+var canvas = null;
+var photo = null;
+var startbutton = null;
+var savebutton = null;
+
 function openCamera() {
   // Need to update to current HTML setup
-    var video = document.getElementById('camera-stream');
-    var canvas = document.getElementById('canvas');
-    var photo = document.getElementById('photo');
-    var startbutton = document.getElementById('take-photo');
-    var savebutton = document.getElementById('save-photo');
-    var width = 320;    // We will scale the photo width to this
-    var height = 0;     // This will be computed based on the input stream
-    var streaming = false;
+    video = document.getElementById('camera-stream');
+    canvas = document.getElementById('canvas');
+    photo = document.getElementById('photo');
+    startbutton = document.getElementById('take-photo');
+    savebutton = document.getElementById('save-photo');
 
     navigator.getMedia = ( navigator.getUserMedia ||
                            navigator.webkitGetUserMedia ||
