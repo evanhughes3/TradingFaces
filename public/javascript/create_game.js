@@ -32,16 +32,3 @@ var appendVideoForPicture = function() {
   $('.output').show();
   openCamera();
 }
-
-// var createNewGameListener = function() {
-//   $('.start-game').on('click', '.friend_data form', function(event){
-//     event.preventDefault();
-
-//     var opponentClass = event.target.id
-//     $('#save-photo').attr('data-opponent', opponentClass );
-
-//     friendsOverlay();
-//     appendVideoForPicture();
-//     $(this).off();
-//   });
-// }

@@ -6,7 +6,3 @@ var respondToChallenge = function() {
   $('#save-photo').attr('data-round-id', roundId);
   $(this).off();
 }
-
-// $(document).ready(function(){
-//   respondToChallenge();
-// });
