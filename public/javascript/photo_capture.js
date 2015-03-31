@@ -127,8 +127,8 @@ function createPhotoAjax (roundId, imageData) {
   });
   ajaxPhoto.done(function (serverData) {
     console.log('Successfully saved photo.');
-    hideEverything();
     $savebutton.attr('data-round-id', '');
+    photoOverlay();
   });
 
   ajaxPhoto.fail(function () {
