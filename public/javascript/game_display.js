@@ -59,7 +59,6 @@ function getStarRating() {
   var ratings = $('.star-rating');
   $.each(ratings, function(index, $rating) {
   console.log($rating)
-  debugger
   var rating = $rating.getAttribute('data-rating');
   rating = (rating/20).toFixed(1)
   console.log(rating)
