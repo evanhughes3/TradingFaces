@@ -28,18 +28,17 @@ var renderUsers = function(data) {
 
 var toggleCamera = function() {
   $('#video_container').toggle();
-  openCamera();
 }
 
 var toggleOutput = function() {
   $('.output').toggle();
-  openCamera();
 }
 
 var respondToChallenge = function() {
   var roundId = $(this).data('round-id');
   hideEverything();
   photoOverlay();
+  openCamera();
   $('#save-photo').attr('data-round-id', roundId);
   $(this).off();
 }

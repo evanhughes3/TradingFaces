@@ -97,10 +97,10 @@ function takePicture(event) {
 }
 
 function savePhoto (event) {
+  toggleOutput();
   var imageData = $('#photo').attr('src');
   var roundId = $('#save-photo').attr('data-round-id');
   var opponentClass = $('#save-photo').attr('data-opponent');
-  toggleOutput();
   if ( roundId ) {
     $('#loader').show();
     createPhotoAjax(roundId, imageData);

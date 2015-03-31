@@ -41,6 +41,7 @@ var loadNewGameOverlay = function() {
     var opponentClass = event.target.id
     friendsOverlay();
     photoOverlay();
+    openCamera();
     $('#save-photo').attr('data-opponent', opponentClass );
   });
 }
