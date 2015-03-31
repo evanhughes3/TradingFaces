@@ -2,6 +2,7 @@
   border: 1px solid black;
 }
 */
+
 #banner {
   height:25%;
 }
@@ -34,17 +35,7 @@ a {
 
 h1{
   font-size: 180%;
-
 }
-
-/*#video_container {
-  display: none;
-}
-
-
-.output {
-  display: none;
-}*/
 
 .body_container  {
   width: 48%;
@@ -111,11 +102,6 @@ img.thumbnail {
   height: 60%;
   width: 90%;
   background-color: #fff;
-}
-
-
-#module-closer {
-
 }
 
 #loader {
