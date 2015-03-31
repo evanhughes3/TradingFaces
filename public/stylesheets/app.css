@@ -96,11 +96,10 @@ img.thumbnail {
 
 #photo-overlay .photo-box {
   width: 50%;
-  margin-top: 10%;
-  margin-left: 5%;
+  margin: 10% auto;
   border-radius: 10px;
-  height: 60%;
-  width: 90%;
+  height: 50%;
+  width: 60%;
   background-color: #fff;
 }
 
