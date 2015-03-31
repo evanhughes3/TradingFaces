@@ -99,6 +99,7 @@ function savePhoto (event) {
   var opponentClass = $('#save-photo').attr('data-opponent');
   debugger
   if ( roundId ) {
+    $('#loader').show();
     createPhotoAjax(roundId, imageData);
     $(this).off();
   } else {
@@ -130,6 +131,7 @@ function createPhotoAjax (roundId, imageData) {
     console.log('Successfully saved photo.');
     hideEverything();
     $savebutton.attr('data-round-id', '');
+    $('body').find('#loader').hide();
   });
 
   ajaxPhoto.fail(function () {
