@@ -6,5 +6,5 @@ $(document).ready(function () {
   $('#old-games').click( getOldGames );
   startNewGameListener();
   closeOverlays();
-  // createNewGameListener();
+  loadNewGameOverlay();
 });

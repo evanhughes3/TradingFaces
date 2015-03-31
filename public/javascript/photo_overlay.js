@@ -5,18 +5,14 @@ var photoOverlay = function() {
   $el.css('visibility', newVisibility);
 }
 
-
-
-$(document).ready(function() {
+var loadNewGameOverlay = function() {
   $('.start-game').on('click', '.friend_data form', function(event){
     event.preventDefault();
-
     // refactor opponent class to be a data tag
     var opponentClass = event.target.id
     friendsOverlay();
-    debugger
     photoOverlay();
     $('#save-photo').attr('data-opponent', opponentClass );
     appendVideoForPicture();
   });
-});
+}
