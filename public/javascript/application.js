@@ -4,7 +4,7 @@ $(document).ready(function () {
   $('.main-content').on('click', '.row div .respond-to', respondToChallenge );
   $('#current-games').click( getCurrentGames );
   $('#old-games').click( getOldGames );
-  startNewGameListener();
+  selectFriendToChallenge();
   closeOverlays();
   loadNewGameOverlay();
 });
