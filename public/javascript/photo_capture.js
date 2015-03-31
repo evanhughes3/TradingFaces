@@ -98,9 +98,11 @@ function savePhoto (event) {
   var roundId = $('#save-photo').attr('data-round-id');
   var opponentClass = $('#save-photo').attr('data-opponent');
   if ( roundId ) {
+    $('#loader').show();
     createPhotoAjax(roundId, imageData);
     $(this).off();
   } else {
+    $('#loader').show();
     var ajaxGame = $.ajax({
       url: '/games',
       type: 'post',
@@ -125,10 +127,13 @@ function createPhotoAjax (roundId, imageData) {
     type: 'post',
     data: {image_data: imageData},
   });
+
   ajaxPhoto.done(function (serverData) {
     console.log('Successfully saved photo.');
     $savebutton.attr('data-round-id', '');
+    $('body').find('#loader').hide();
     photoOverlay();
+    debugger
   });
 
   ajaxPhoto.fail(function () {

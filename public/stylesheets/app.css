@@ -117,3 +117,11 @@ img.thumbnail {
 #module-closer {
 
 }
+
+#loader {
+  width: 128px;
+  height: 128px;
+  margin: auto;
+  display: none;
+  background-image: url("../images/ajax_loader.gif")
+}
