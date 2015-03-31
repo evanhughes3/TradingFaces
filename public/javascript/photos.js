@@ -60,6 +60,7 @@ function openCamera() {
               event.preventDefault();
               $(this).off();
             });
+
           },
           function (err) {
             console.log("An error occured! " + err);
@@ -80,6 +81,8 @@ function clearPhoto() {
 
 function takePicture(event) {
   event.preventDefault();
+  toggleCamera();
+  toggleOutput();
   var context = canvas.getContext('2d');
   if (width && height) {
     canvas.width = width;
@@ -94,6 +97,7 @@ function takePicture(event) {
 }
 
 function savePhoto (event) {
+  toggleOutput();
   var imageData = $('#photo').attr('src');
   var roundId = $('#save-photo').attr('data-round-id');
   var opponentClass = $('#save-photo').attr('data-opponent');
@@ -133,6 +137,7 @@ function createPhotoAjax (roundId, imageData) {
     $savebutton.attr('data-round-id', '');
     $('body').find('#loader').hide();
     photoOverlay();
+    loadCurrentGames();
   });
 
   ajaxPhoto.fail(function () {
