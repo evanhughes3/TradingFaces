@@ -17,6 +17,7 @@ gem 'hirb', :require=> 'hirb', :group => :development
 gem 'simplecov', :require => false, :group => :test
 gem 'pry-byebug'
 
+gem 'dotenv-rails'
 # gem 'bootstrap'
 
 group :development, :test do
@@ -29,7 +30,6 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem "chromedriver-helper"
   gem 'database_cleaner'
-  gem 'dotenv-rails'
 end
 
 
