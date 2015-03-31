@@ -20,6 +20,7 @@ function getOldGames (event) {
   })
   .done(function(gameData) {
     $('.main-content').empty();
+    console.log(gameData)
       var source   = $("#games-template").html();
       var template = Handlebars.compile(source);
       var context = {games: gameData};
