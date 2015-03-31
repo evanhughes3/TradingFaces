@@ -1,5 +1,5 @@
-function getCurrentGames (argument) {
-
+function getCurrentGames (event) {
+		event.preventDefault();
 	  var ajaxCurrentGames = $.ajax({
 	  	url: '/games/current_games',
 	  });
@@ -8,8 +8,7 @@ function getCurrentGames (argument) {
 	  	$('.main-content').empty();
 	  	var source   = $("#games-template").html();
 	  	var template = Handlebars.compile(source);
-	  	var context = {games: gameData, roundNum: [1,2]};
+	  	var context = {games: gameData};
 	  	$('.main-content').append(template(context));
 	  });
-
 }
