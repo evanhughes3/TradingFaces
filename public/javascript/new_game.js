@@ -48,7 +48,7 @@ var startNewGameListener = function() {
 }
 
 var appendVideoForPicture = function() {
-  $('.main-content').empty();
+  // $('.main-content').empty();
   $('#video_container').show();
   $('.output').show();
   openCamera();
@@ -57,7 +57,6 @@ var appendVideoForPicture = function() {
 var createNewGameListener = function() {
   $('.start-game').on('click', '.friend_data form', function(event){
     event.preventDefault();
-
 
     var opponentClass = event.target.id
     $('#save-photo').attr('data-opponent', opponentClass );
