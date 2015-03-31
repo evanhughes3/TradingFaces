@@ -7,6 +7,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
-    redirect_to 'http://fuf.me:3000/login'
+    redirect_to "#{ENV['HOSTNAME']}/login"
   end
 end
