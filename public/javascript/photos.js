@@ -136,8 +136,9 @@ function createPhotoAjax (roundId, imageData) {
     $savebutton.attr('data-round-id', '');
     // $('body').find('#loader').hide();
     toggleLoadingGif();
-    photoOverlay();
-    loadCurrentGames();
+    showCheckMark();
+    // photoOverlay();
+    // loadCurrentGames();
   });
 
   ajaxPhoto.fail(function () {
