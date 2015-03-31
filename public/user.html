@@ -9,12 +9,13 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="/javascript/confirmations.js"></script>
   <script src="/javascript/index.js"></script>
   <script src="/javascript/jquery.raty.js"></script>
   <script src="/javascript/game_play.js"></script>
-  <script src="/javascript/game_display.js"></script>
   <script src="/javascript/overlays.js"></script>
   <script src="/javascript/photos.js"></script>
+  <script src="/javascript/game_display.js"></script>
   <script src="/javascript/application.js"></script>
 
 
@@ -112,19 +113,26 @@
       <div class="photo-box">
         <p class="module-closer"><a href="#">[x] close</a></p>
 
-        <div id="loader"></div>
+        <div class="video_content">
+          <div id="loader"></div>
+          <div id="checkmark"></div>
 
-        <div id="video_container">
-          <video id="camera-stream" width="500" autoplay></video>
-          <button id="take-photo">Take Photo</button>
-        </div>
+          <div id="video_container">
+            <video id="camera-stream" width="500" autoplay></video>
+            <p>
+              <button id="take-photo">Take Photo</button>
+            </p>
+          </div>
 
-        <canvas id="canvas" style="display: none;">
-        </canvas>
+          <canvas id="canvas" style="display: none;">
+          </canvas>
 
-        <div class="output">
-          <img id="photo" alt="The screen capture will appear in this box.">
-          <button id="save-photo" data-game-id data-round-id>Save Photo</button>
+          <div class="output">
+            <img id="photo" alt="The screen capture will appear in this box.">
+            <p>
+              <button id="save-photo" data-game-id data-round-id>Save Photo</button>
+            </p>
+          </div>
         </div>
       </div>
     </div>

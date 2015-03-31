@@ -104,11 +104,19 @@ img.thumbnail {
   background-color: #fff;
 }
 
-#loader {
+#checkmark {
+  display: none;
   width: 128px;
   height: 128px;
   margin: auto;
+  background-image: url("../images/checkmark.png");
+}
+
+#loader {
   display: none;
+  width: 128px;
+  height: 128px;
+  margin: auto;
   background-image: url("../images/ajax_loader.gif")
 }
 
@@ -129,4 +137,20 @@ img.thumbnail {
 .friend_data {
   margin: 1em;
   float: left;
+}
+
+.video_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#video_container, .output {
+  display: none;
+  margin: 1em;
+}
+
+button {
+  margin: 1em;
 }
