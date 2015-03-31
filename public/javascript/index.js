@@ -1,4 +1,4 @@
-function getUser (event) {
+function getUser () {
   var userPageInfo = {};
   var ajaxUser = $.ajax({
     url: '/users/show',

@@ -5,21 +5,23 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy', as: 'signout', via: :get
 
   match '/friends', to: 'users#friends', via: :get
-  match 'games/current_games', to: 'games#current_games', via: :get
-  match 'games/finished_games', to: 'games#finished_games', via: :get
+  match '/games/current_games', to: 'games#current_games', via: :get
+  match '/games/finished_games', to: 'games#finished_games', via: :get
+  match '/current_status', to: 'sessions#check_status', via: :get
+
+  get '/user', to: redirect('/user')
+  get '/login', to: redirect('/login')
+
+  root 'sessions#check_status'
 
   get 'users/index'
   get 'users/show'
-
-
-
 
   resources :rounds, only: ['create', 'index', 'update'] do
     resources :photos, only: ['create']
   end
   resources :games, only: ['create']
 
-  root 'users#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
