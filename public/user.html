@@ -101,7 +101,11 @@
                 <p class="rating" >Rating: {{rating}}</p>
                 <div class="star-rating" data-rating={{rating}}></div>
               {{ else }}
-                <button class="respond-to" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Respond</button>
+                {{#if photos}}
+                  <button class="respond-to" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Respond</button>
+                {{ else }}
+                  <button class="respond-to" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Start New Round</button>
+                {{/if}}
               {{/if}}
             </div>
           {{/each}}
