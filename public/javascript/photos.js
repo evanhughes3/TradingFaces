@@ -81,6 +81,8 @@ function clearPhoto() {
 
 function takePicture(event) {
   event.preventDefault();
+  toggleCamera();
+  toggleOutput();
   var context = canvas.getContext('2d');
   if (width && height) {
     canvas.width = width;
@@ -98,7 +100,7 @@ function savePhoto (event) {
   var imageData = $('#photo').attr('src');
   var roundId = $('#save-photo').attr('data-round-id');
   var opponentClass = $('#save-photo').attr('data-opponent');
-  appendVideoForPicture();
+  toggleOutput();
   if ( roundId ) {
     $('#loader').show();
     createPhotoAjax(roundId, imageData);

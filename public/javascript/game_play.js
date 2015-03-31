@@ -26,18 +26,28 @@ var renderUsers = function(data) {
   $('.friend-box').append(friendsTemplate(context));
 }
 
-var appendVideoForPicture = function() {
-  // $('.main-content').empty();
+var toggleCamera = function() {
   $('#video_container').toggle();
+  openCamera();
+}
+
+var toggleOutput = function() {
   $('.output').toggle();
   openCamera();
 }
+
+// var appendVideoForPicture = function() {
+//   // $('.main-content').empty();
+//   $('#video_container').toggle();
+//   $('.output').toggle();
+//   openCamera();
+// }
 
 var respondToChallenge = function() {
   var roundId = $(this).data('round-id');
   hideEverything();
   photoOverlay();
-  appendVideoForPicture();
+  toggleCamera();
   $('#save-photo').attr('data-round-id', roundId);
   $(this).off();
 }
