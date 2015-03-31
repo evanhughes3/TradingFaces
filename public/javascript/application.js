@@ -7,5 +7,6 @@ $(document).ready(function () {
   $('#old-games').click( getOldGames );
   selectFriendToChallenge();
   closeOverlays();
-  loadNewGameOverlay();	
+  loadNewGameOverlay();
+  retakePhotoListener();
 });

@@ -134,11 +134,8 @@ function createPhotoAjax (roundId, imageData) {
   ajaxPhoto.done(function (serverData) {
     console.log('Successfully saved photo.');
     $savebutton.attr('data-round-id', '');
-    // $('body').find('#loader').hide();
     toggleLoadingGif();
     showCheckMark();
-    // photoOverlay();
-    // loadCurrentGames();
   });
 
   ajaxPhoto.fail(function () {
@@ -146,6 +143,12 @@ function createPhotoAjax (roundId, imageData) {
   });
 }
 
+var retakePhotoListener = function() {
+  $('#retake-photo').on('click', function() {
+    toggleOutput();
+    toggleCamera();
+  })
+}
 
 
 
