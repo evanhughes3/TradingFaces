@@ -28,8 +28,8 @@ var renderUsers = function(data) {
 
 var appendVideoForPicture = function() {
   // $('.main-content').empty();
-  $('#video_container').show();
-  $('.output').show();
+  $('#video_container').toggle();
+  $('.output').toggle();
   openCamera();
 }
 
