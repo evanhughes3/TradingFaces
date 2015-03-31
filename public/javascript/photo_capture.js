@@ -97,7 +97,6 @@ function savePhoto (event) {
   var imageData = $('#photo').attr('src');
   var roundId = $('#save-photo').attr('data-round-id');
   var opponentClass = $('#save-photo').attr('data-opponent');
-  debugger
   if ( roundId ) {
     createPhotoAjax(roundId, imageData);
     $(this).off();
