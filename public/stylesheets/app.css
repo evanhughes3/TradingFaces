@@ -130,3 +130,14 @@ img.thumbnail {
   margin: 1em;
   float: left;
 }
+
+.video_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#video_container, .output {
+  margin: 1em;
+}
