@@ -36,18 +36,10 @@ var toggleOutput = function() {
   openCamera();
 }
 
-// var appendVideoForPicture = function() {
-//   // $('.main-content').empty();
-//   $('#video_container').toggle();
-//   $('.output').toggle();
-//   openCamera();
-// }
-
 var respondToChallenge = function() {
   var roundId = $(this).data('round-id');
   hideEverything();
   photoOverlay();
-  toggleCamera();
   $('#save-photo').attr('data-round-id', roundId);
   $(this).off();
 }
