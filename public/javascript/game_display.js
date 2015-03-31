@@ -1,16 +1,23 @@
-function getCurrentGames (event) {
-    event.preventDefault();
-    var ajaxCurrentGames = $.ajax({
-      url: '/games/current_games',
-    });
+function currentGamesEventListener (event) {
+  event.preventDefault();
+  loadCurrentGames();
+}
 
-    ajaxCurrentGames.done(function (gameData) {
-      $('.main-content').empty();
-      var source   = $("#games-template").html();
-      var template = Handlebars.compile(source);
-      var context = {games: gameData};
-      $('.main-content').append(template(context));
-    });
+function getCurrentGames() {
+  return $.ajax({
+    url: '/games/current_games',
+  });
+}
+
+function loadCurrentGames() {
+  var currentGameData = getCurrentGames();
+  currentGameData.done(function(gameData) {
+    $('.main-content').empty();
+    var source   = $("#games-template").html();
+    var template = Handlebars.compile(source);
+    var context = {games: gameData};
+    $('.main-content').append(template(context));
+  });
 }
 
 function getOldGames (event) {
