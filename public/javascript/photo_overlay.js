@@ -5,6 +5,8 @@ var photoOverlay = function() {
   $el.css('visibility', newVisibility);
 }
 
+
+
 $(document).ready(function() {
   $('.start-game').on('click', '.friend_data form', function(event){
     event.preventDefault();
