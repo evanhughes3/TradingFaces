@@ -133,7 +133,6 @@ function createPhotoAjax (roundId, imageData) {
     $savebutton.attr('data-round-id', '');
     $('body').find('#loader').hide();
     photoOverlay();
-    debugger
   });
 
   ajaxPhoto.fail(function () {

@@ -2,6 +2,7 @@
   border: 1px solid black;
 }
 */
+
 #banner {
   height:25%;
 }
@@ -34,17 +35,7 @@ a {
 
 h1{
   font-size: 180%;
-
 }
-
-/*#video_container {
-  display: none;
-}
-
-
-.output {
-  display: none;
-}*/
 
 .body_container  {
   width: 48%;
@@ -113,15 +104,29 @@ img.thumbnail {
   background-color: #fff;
 }
 
-
-#module-closer {
-
-}
-
 #loader {
   width: 128px;
   height: 128px;
   margin: auto;
   display: none;
   background-image: url("../images/ajax_loader.gif")
+}
+
+.main-content {
+  clear: both;
+}
+
+.friend_box {
+  /*height: 200px;*/
+}
+
+.thumbnail  {
+  max-width: 12%;
+  float: left;
+  margin-left: 2%;
+}
+
+.friend_data {
+  margin: 1em;
+  float: left;
 }
