@@ -1,19 +1,17 @@
-// $('#old-games').click(function(event) {
-//   event.preventDefault()
-//   $.ajax({
-//     url: '/games/finished_games',
-//     type: 'GET',
-//   })
-//   .done(function(response) {
-//     console.log("success old games");
-//     parseResponse(response)
-//   })
-//   .fail(function() {
-//     console.log("error old games");
-//   })
+function getCurrentGames (event) {
+    event.preventDefault();
+    var ajaxCurrentGames = $.ajax({
+      url: '/games/current_games',
+    });
 
-// });
-
+    ajaxCurrentGames.done(function (gameData) {
+      $('.main-content').empty();
+      var source   = $("#games-template").html();
+      var template = Handlebars.compile(source);
+      var context = {games: gameData};
+      $('.main-content').append(template(context));
+    });
+}
 
 function getOldGames (event) {
   event.preventDefault();
@@ -21,7 +19,6 @@ function getOldGames (event) {
     url: '/games/finished_games'
   })
   .done(function(gameData) {
-    console.log("success old games");
     $('.main-content').empty();
       var source   = $("#games-template").html();
       var template = Handlebars.compile(source);
