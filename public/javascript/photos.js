@@ -60,6 +60,7 @@ function openCamera() {
               event.preventDefault();
               $(this).off();
             });
+
           },
           function (err) {
             console.log("An error occured! " + err);
@@ -97,6 +98,7 @@ function savePhoto (event) {
   var imageData = $('#photo').attr('src');
   var roundId = $('#save-photo').attr('data-round-id');
   var opponentClass = $('#save-photo').attr('data-opponent');
+  appendVideoForPicture();
   if ( roundId ) {
     $('#loader').show();
     createPhotoAjax(roundId, imageData);

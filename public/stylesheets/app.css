@@ -142,3 +142,7 @@ img.thumbnail {
   display: none;
   margin: 1em;
 }
+
+button {
+  margin: 1em;
+}
