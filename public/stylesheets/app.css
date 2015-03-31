@@ -104,11 +104,19 @@ img.thumbnail {
   background-color: #fff;
 }
 
-#loader {
+#checkmark {
+  display: none;
   width: 128px;
   height: 128px;
   margin: auto;
+  background-image: url("../images/checkmark.png");
+}
+
+#loader {
   display: none;
+  width: 128px;
+  height: 128px;
+  margin: auto;
   background-image: url("../images/ajax_loader.gif")
 }
 
