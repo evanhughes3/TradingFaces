@@ -52,10 +52,11 @@ function getStarRating() {
   var ratings = $('.star-rating');
   $.each(ratings, function(index, $rating) {
   console.log($rating)
-  // debugger
+  debugger
   var rating = $rating.getAttribute('data-rating');
-  rating = Math.round(rating/20)
+  rating = (rating/20).toFixed(1)
   console.log(rating)
-  $rating.raty({ readOnly: true, score: rating });
+  console.log(this)
+  $(this).raty({ readOnly: true, score: rating });
   });
 }
