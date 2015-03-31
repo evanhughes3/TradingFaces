@@ -10,10 +10,10 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-  <script src="/javascript/challengelightbox.js"></script>
   <script src="/javascript/new_game.js"></script>
   <script src="/javascript/respond_to_round.js"></script>
   <script src="/javascript/index.js"></script>
+  <script src="/javascript/photo_overlay.js"></script>
   <script src="/javascript/photo_capture.js"></script>
   <script src="/javascript/moduleclose.js"></script>
   <script src="/javascript/current_games.js"></script>
@@ -57,59 +57,65 @@
         </div>
       </div>
     </div>
-        <script type="text/xhandlebars-template" id="friends_to_challenge_template">
-            <h2>Pick a Friend</h2>
-              {{#each friends}}
-                <div id="friend_{{id}}">
-                  <img class="thumbnail" src="{{photo_url}}">
-                  <div class="friend_data">
-                    <h3>{{full_name}}</h3>
-                    <form action="/games">
-                      <input type="submit" value="Challenge!" id="user_{{id}}" />
-                    </form>
-                  </div>
-                </div>
-              {{/each}}
-        </script>
 
-      <script id="games-template" type="text/x-handlebars-template">
-          {{#each games}}
-            <div class="row well" id="game-{{id}}">
-              <div class="col-md-4">
-                <div class="row">
-                  <div class="col-md-5">
-                    <img src="{{users.0.photo_url}}" class="img-responsive img-rounded" />
-                    <p style="text-align: center;">{{users.0.full_name}}</p>
-                  </div>
-                  <div class="col-md-2">
-                    <h4>VS</h4>
-                  </div>
-                  <div class="col-md-5">
-                    <img src="{{users.1.photo_url}}" class="img-responsive img-rounded" />
-                    <p "text-align: center;">{{users.1.full_name}}</p>
-                  </div>
-                </div>
+    <script type="text/xhandlebars-template" id="friends_to_challenge_template">
+        <h2>Pick a Friend</h2>
+          {{#each friends}}
+            <div id="friend_{{id}}">
+              <img class="thumbnail" src="{{photo_url}}">
+              <div class="friend_data">
+                <h3>{{full_name}}</h3>
+                <form action="/games">
+                  <input type="submit" value="Challenge!" id="user_{{id}}" />
+                </form>
               </div>
-              {{#each rounds}}
-                <div class="col-md-4" id="round-{{id}}">
-                  <div class="row">
-                    {{#each photos}}
-                      <div class="col-md-6">
-                        <img src="{{img_url}}" class="img-responsive img-rounded"/>
-                      </div>
-                    {{/each}}
-                  </div>
-                  {{#if rating }}
-                    <p class="rating">Rating: {{rating}}</p>
-                  {{ else }}
-                    <button class="respond-to" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Respond</button>
-                  {{/if}}
-                </div>
-              {{/each}}
             </div>
           {{/each}}
-        </script>
+    </script>
 
+    <script id="games-template" type="text/x-handlebars-template">
+      {{#each games}}
+        <div class="row well" id="game-{{id}}">
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-5">
+                <img src="{{users.0.photo_url}}" class="img-responsive img-rounded" />
+                <p style="text-align: center;">{{users.0.full_name}}</p>
+              </div>
+              <div class="col-md-2">
+                <h4>VS</h4>
+              </div>
+              <div class="col-md-5">
+                <img src="{{users.1.photo_url}}" class="img-responsive img-rounded" />
+                <p "text-align: center;">{{users.1.full_name}}</p>
+              </div>
+            </div>
+          </div>
+          {{#each rounds}}
+            <div class="col-md-4" id="round-{{id}}">
+              <div class="row">
+                {{#each photos}}
+                  <div class="col-md-6">
+                    <img src="{{img_url}}" class="img-responsive img-rounded"/>
+                  </div>
+                {{/each}}
+              </div>
+              {{#if rating }}
+                <p class="rating">Rating: {{rating}}</p>
+              {{ else }}
+                <button class="respond-to" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Respond</button>
+              {{/if}}
+            </div>
+          {{/each}}
+        </div>
+      {{/each}}
+    </script>
+
+    <div id="photo-overlay">
+      <div class="photo-box">
+        <p id="photo-module-closer"><a href="#">[x] close</a></p>
+
+        <div id="loader"></div>
 
         <div id="video_container">
           <video id="camera-stream" width="500" autoplay></video>
@@ -119,16 +125,15 @@
         <canvas id="canvas" style="display: none;">
         </canvas>
 
-
         <div class="output">
           <img id="photo" alt="The screen capture will appear in this box.">
           <button id="save-photo" data-game-id data-round-id>Save Photo</button>
         </div>
-
-    </div>
-    <div id="loader">
-
+      </div>
     </div>
   </body>
+
+  </div>
+</body>
 </html>
 

@@ -97,7 +97,6 @@ function savePhoto (event) {
   var imageData = $('#photo').attr('src');
   var roundId = $('#save-photo').attr('data-round-id');
   var opponentClass = $('#save-photo').attr('data-opponent');
-  debugger
   if ( roundId ) {
     $('#loader').show();
     createPhotoAjax(roundId, imageData);
@@ -129,8 +128,8 @@ function createPhotoAjax (roundId, imageData) {
   });
   ajaxPhoto.done(function (serverData) {
     console.log('Successfully saved photo.');
-    hideEverything();
     $savebutton.attr('data-round-id', '');
+    photoOverlay();
     $('body').find('#loader').hide();
   });
 
