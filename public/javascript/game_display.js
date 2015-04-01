@@ -45,7 +45,6 @@ function getOldGames (event) {
   })
   .done(function(gameData) {
     $('.main-content').empty();
-    console.log(gameData);
     var source   = $("#games-template").html();
     var template = Handlebars.compile(source);
     var context = {games: gameData};
@@ -75,11 +74,8 @@ function declareWinners (gameData) {
 function getStarRating() {
   var ratings = $('.star-rating');
   $.each(ratings, function(index, $rating) {
-  console.log($rating)
   var rating = $rating.getAttribute('data-rating');
   rating = (rating/20).toFixed(1)
-  console.log(rating)
-  console.log(this)
   $(this).raty({ readOnly: true, score: rating });
   });
 }
