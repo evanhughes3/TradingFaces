@@ -109,7 +109,9 @@
                       <button class="respond-to" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Respond</button>
                     {{/notLoggedIn}}
                   {{ else }}
+                    {{#loggedIn this responder.id ../../../../currentUserId}}
                     <button class="respond-to" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Start New Round</button>
+                    {{/loggedIn }}
                   {{/if}}
                 {{/if}}
               </div>

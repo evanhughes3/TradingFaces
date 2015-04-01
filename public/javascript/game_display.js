@@ -17,8 +17,12 @@ function getCurrentUser() {
 
 Handlebars.registerHelper("notLoggedIn", function (data, responderID, currentUserId, options) {
   if (responderID === currentUserId) {
-    // console.log(data);
-    // console.log(options);
+    return options.fn(data);
+  }
+});
+
+Handlebars.registerHelper("loggedIn", function (data, responderID, currentUserId, options) {
+  if (responderID !== currentUserId) {
     return options.fn(data);
   }
 });
