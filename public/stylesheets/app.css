@@ -1,9 +1,13 @@
+body {
+  font-family: 'Bubblegum Sans', cursive;
+}
+
 #banner {
   height:25%;
 }
 
 a {
-  font-family: 'Megrim', cursive;
+  font-family: 'Bubblegum Sans', cursive;
   font-weight: bold;
 }
 
@@ -183,5 +187,5 @@ button {
 }
 
 .instructions {
-  padding: 10px;
+  padding: 20px;
 }
