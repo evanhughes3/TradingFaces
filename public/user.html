@@ -61,10 +61,11 @@
           {{#each friends}}
             <div class="friend-box" id="friend_{{id}}">
               <img class="thumbnail" src="{{photo_url}}">
-              <h3>{{full_name}}</h3>
-              <form action="/games">
-                <input type="submit" value="Challenge!" id="user_{{id}}" />
-              </form>
+              <div class="friend_data">
+                <h3>{{full_name}}</h3>
+                <button id="#user_{{id}}" class="challenge_friend">Challenge</button>
+                </form>
+              </div>
             </div>
           {{/each}}
         </div>
