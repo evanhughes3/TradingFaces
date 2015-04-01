@@ -114,6 +114,13 @@ img.thumbnail {
   background-image: url("../images/checkmark.png");
 }
 
+#failmark img {
+  display: none;
+  width: 8em;
+  height: auto;
+  margin: auto;
+}
+
 #loader {
   display: none;
   width: 128px;
