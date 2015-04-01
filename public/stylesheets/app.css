@@ -9,10 +9,12 @@ body {
 a {
   font-family: 'Bubblegum Sans', cursive;
   font-weight: bold;
+  color: black;
 }
 
 a:hover {
   text-decoration: none;
+  color: gray;
 }
 
 #navbar .thumbnail {
@@ -83,10 +85,10 @@ img.thumbnail {
 
 #friends-overlay .start-game {
   width: 50%;
-  margin-top: 10%;
+  margin-top: 5%;
   margin-left: 5%;
   border-radius: 10px;
-  height: 50%;
+  height: 70%;
   width: 90%;
   overflow: auto;
   background-color: #fff;
