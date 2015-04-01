@@ -54,7 +54,7 @@ function openCamera() {
 
             startbutton.addEventListener('click', takePicture, false);
 
-            $('#save-photo').on('click', function (event) {
+            $savebutton.on('click', function (event) {
               savePhoto();
               stream.stop();
               event.preventDefault();
