@@ -60,9 +60,11 @@ var gameInstructionsOverlay = function() {
   el.style.visibility = (el.style.visibility == "visible") ?
   "hidden" : "visible";
 
+// render instructions
   var html = $('#game-instructions-template').html();
   var gameInfoTemplate = Handlebars.compile(html);
   $('.instructions').append(gameInfoTemplate());
+  // close box
 
   $('.game-info-closer').on('click', function(event) {
     event.preventDefault();
