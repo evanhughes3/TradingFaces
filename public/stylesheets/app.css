@@ -11,6 +11,10 @@ a {
   font-weight: bold;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 #navbar .thumbnail {
   width: 9%;
   height: 9%;
