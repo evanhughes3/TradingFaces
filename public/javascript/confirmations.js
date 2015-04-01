@@ -4,10 +4,11 @@ var toggleLoadingGif = function() {
 
 var showCheckMark = function() {
   $('#checkmark').show();
-  $('#checkmark').fadeOut(1000, function() {
+  setTimeout(function() {
+    $('#checkmark').hide();
     photoOverlay();
     loadCurrentGames();
-  });
+  }, 1000);
 }
 
 var showFailMark = function() {
