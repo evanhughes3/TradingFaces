@@ -23,7 +23,7 @@ function toggleNavbarFaces() {
   })
 
   $('#old-games').children().hover(function(){
-    $(this).attr("src", "../images/laugh_icon.png");
+    $(this).attr("src", "../images/weird_icon.png");
     }, function() {
     $(this).attr("src", "../images/whistle_icon.png");
   })

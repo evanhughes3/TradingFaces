@@ -22,25 +22,26 @@
 <body>
   <div class="container">
     <div id="navbar">
-      <a href="/friends" id="new-game" class="thumbnail">
-        <img src="/images/smile_icon.png">New Game
-      </a>
 
-      <a href="#" id="current-games" class="thumbnail">
-        <img src="/images/tongue_icon.png">Current Games
-      </a>
+        <a href="#" id="new-game" class="thumbnail">
+          <img src="/images/smile_icon.png">New Games
+        </a>
 
-      <div id="logo">
-        <h1>Trading Faces</h1>
-      </div>
+        <a href="#" id="current-games" class="thumbnail">
+          <img src="/images/tongue_icon.png">Current Games
+        </a>
 
-      <a href="#" id="old-games" class="thumbnail">
-        <img src="/images/whistle_icon.png">Old Games
-      </a>
+        <div id="logo">
+          <h1>Trading Faces</h1>
+        </div>
 
-      <a href="/signout" id="logout" class="thumbnail">
-        <img src="/images/wink_icon.png">Logout
-      </a>
+        <a href="#" id="old-games" class="thumbnail">
+          <img src="/images/whistle_icon.png">Old Games
+        </a>
+
+        <a href="/signout" id="logout" class="thumbnail">
+          <img src="/images/wink_icon.png">Logout
+        </a>
     </div>
 
     <div class="main-content">
@@ -56,8 +57,9 @@
 
     <script type="text/xhandlebars-template" id="friends_to_challenge_template">
         <h2>Pick a Friend</h2>
+        <div class="row">
           {{#each friends}}
-            <div id="friend_{{id}}">
+            <div class="col-xs-4 clearfix" id="friend_{{id}}">
               <img class="thumbnail" src="{{photo_url}}">
               <div class="friend_data">
                 <h3>{{full_name}}</h3>
@@ -66,7 +68,9 @@
                 </form>
               </div>
             </div>
+
           {{/each}}
+      </div>
     </script>
 
     <script id="games-template" type="text/x-handlebars-template">
