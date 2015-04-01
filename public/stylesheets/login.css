@@ -1,7 +1,7 @@
-* {
+/** {
   border: 1px solid black;
 
-}
+}*/
 
 
 
@@ -28,6 +28,6 @@
 }
 
 #facebook_button {
-  width: 30%;
-  margin-left: 35%;
+  width: 25%;
+  margin-left: 37%;
 }

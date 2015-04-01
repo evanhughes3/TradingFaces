@@ -128,6 +128,7 @@ img.thumbnail {
 
 .friend_box {
   float: left;
+
 }
 
 .video_content {
@@ -150,4 +151,5 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
 }

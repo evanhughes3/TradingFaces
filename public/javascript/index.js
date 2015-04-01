@@ -11,19 +11,19 @@ function getUser () {
 
 function toggleNavbarFaces() {
   $('#new-game').children().hover(function(){
-    $(this).attr("src", "../images/wink_icon.png");
+    $(this).attr("src", "../images/laugh_icon.png");
     }, function() {
     $(this).attr("src", "../images/smile_icon.png");
   })
 
   $('#current-games').children().hover(function(){
-    $(this).attr("src", "../images/smile_icon.png");
+    $(this).attr("src", "../images/tongue_icon.png");
     }, function() {
     $(this).attr("src", "../images/love_icon.png");
   })
 
   $('#old-games').children().hover(function(){
-    $(this).attr("src", "../images/laugh_icon.png");
+    $(this).attr("src", "../images/weird_icon.png");
     }, function() {
     $(this).attr("src", "../images/whistle_icon.png");
   })
