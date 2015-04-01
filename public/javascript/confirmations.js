@@ -9,3 +9,12 @@ var showCheckMark = function() {
     loadCurrentGames();
   });
 }
+
+var showFailMark = function() {
+  $('#failmark').show();
+  setTimeout(function() {
+    $('#failmark').hide();
+    photoOverlay();
+    console.log('reopen camera here...?')
+  }, 1000);
+}
