@@ -36,9 +36,10 @@ var toggleOutput = function() {
 
 var respondToChallenge = function() {
   var roundId = $(this).data('round-id');
+  var $img = $(this).siblings().find('img')
   hideEverything();
   photoOverlay();
-  openCamera();
+  startRound($img, toggleCamera, openCamera);
   $('#save-photo').attr('data-round-id', roundId);
   $(this).off();
 }
