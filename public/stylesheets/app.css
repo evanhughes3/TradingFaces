@@ -178,3 +178,11 @@ button {
   overflow: auto;
   background-color: #fff;
 }
+
+#instructions {
+  text-align: center;
+}
+
+.game-instructions {
+  text-align: center;
+}

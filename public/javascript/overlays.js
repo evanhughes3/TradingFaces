@@ -2,6 +2,7 @@ var closeOverlays = function() {
   $('.module-closer').on('click', function(event) {
     event.preventDefault();
     ($('#photo-overlay').css('visibility') == 'visible') ? photoOverlay() : friendsOverlay();
+    renderGameInstructions();
   });
 }
 
@@ -55,21 +56,12 @@ var startRound = function(img, toggleCamera, openCamera) {
 }
 
 var gameInstructionsOverlay = function() {
-  $('.instructions').empty();
-  el = document.getElementById("game-info-overlay");
-  el.style.visibility = (el.style.visibility == "visible") ?
-  "hidden" : "visible";
-
-// render instructions
-  var html = $('#game-instructions-template').html();
-  var gameInfoTemplate = Handlebars.compile(html);
-  $('.instructions').append(gameInfoTemplate());
-  // close box
-
-  $('.game-info-closer').on('click', function(event) {
-    event.preventDefault();
-    $('#game-info-overlay').css('visibility', 'hidden')
-  });
+  $('.main-content').empty();
+  renderGameInstructions();
 }
 
-// CARIIII HELP ME CLOSE OUT OF THIS!!
+var renderGameInstructions = function() {
+  var html = $('#game-instructions-template').html();
+  var gameInfoTemplate = Handlebars.compile(html);
+  $('.main-content').append(gameInfoTemplate());
+}
