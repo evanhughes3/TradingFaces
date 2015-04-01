@@ -56,18 +56,18 @@
     </div>
 
     <script type="text/xhandlebars-template" id="friends_to_challenge_template">
-        <h2>Pick a Friend</h2>
+
+        <div class="friend-list">
           {{#each friends}}
-            <div id="friend_{{id}}">
+            <div class="friend-box" id="friend_{{id}}">
               <img class="thumbnail" src="{{photo_url}}">
-              <div class="friend_data">
-                <h3>{{full_name}}</h3>
-                <form action="/games">
-                  <input type="submit" value="Challenge!" id="user_{{id}}" />
-                </form>
-              </div>
+              <h3>{{full_name}}</h3>
+              <form action="/games">
+                <input type="submit" value="Challenge!" id="user_{{id}}" />
+              </form>
             </div>
           {{/each}}
+        </div>
     </script>
 
     <script id="games-template" type="text/x-handlebars-template">
