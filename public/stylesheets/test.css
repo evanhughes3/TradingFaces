@@ -25,12 +25,9 @@
 
 .face-icon {
   clear: both;
-  height: 96px;
-  width: 112px;
-  background-image: url("../images/wink_icon.png");
-  background-color: blue;
+  /*width: 90%;*/
 }
 
-.face-icon:hover {
-  background-image: url("../images/smile_icon.png");
+.face-icon img {
+  width: 15%;
 }
