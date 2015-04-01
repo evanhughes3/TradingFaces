@@ -1,7 +1,13 @@
 /** {
   border: 1px solid black;
 }*/
+.challenge_friend {
+  margin-top: 0px;
+}
 
+.friend-name {
+  margin: 5px;
+}
 
 #banner {
   height:25%;
@@ -111,7 +117,14 @@ img.thumbnail {
   width: 128px;
   height: 128px;
   margin: auto;
-  background-image: url("../images/checkmark.png");
+  /*background-image: url("../images/checkmark.png");*/
+}
+
+#failmark {
+  display: none;
+  width: 128px;
+  height: 128px;
+  margin: auto;
 }
 
 #loader {
@@ -150,4 +163,13 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.user-names {
+  text-align: center;
+}
+
+.winner {
+  text-align: center;
+  color: red;
 }

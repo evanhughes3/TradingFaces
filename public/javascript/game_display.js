@@ -17,8 +17,12 @@ function getCurrentUser() {
 
 Handlebars.registerHelper("notLoggedIn", function (data, responderID, currentUserId, options) {
   if (responderID === currentUserId) {
-    // console.log(data);
-    // console.log(options);
+    return options.fn(data);
+  }
+});
+
+Handlebars.registerHelper("loggedIn", function (data, responderID, currentUserId, options) {
+  if (responderID !== currentUserId) {
     return options.fn(data);
   }
 });
@@ -59,7 +63,6 @@ function getOldGames (event) {
 
 function declareWinners (gameData) {
   $.each(gameData, function(index, game) {
-     /* iterate through array or object */
      var gameID = game.id;
      var winnerID;
      if ( game.players[0].winner ) {
@@ -67,7 +70,7 @@ function declareWinners (gameData) {
      } else if ( game.players[1].winner ) {
       winnerID = game.players[1].user_id;
      }
-    $('.main-content #game-' + gameID + ' #player-' + winnerID + ' p').append( ' won!');
+    $('.main-content #game-' + gameID + ' #player-' + winnerID).append("<h4 class='winner'>Winner!</h4>");
   });
 }
 
