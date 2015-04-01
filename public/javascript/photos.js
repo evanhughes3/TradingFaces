@@ -140,6 +140,8 @@ function createPhotoAjax (roundId, imageData) {
 
   ajaxPhoto.fail(function () {
     console.log('Failed to save photo.');
+    toggleLoadingGif();
+    showFailMark();
   });
 }
 
