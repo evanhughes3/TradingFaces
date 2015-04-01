@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   match '/games/current_games', to: 'games#current_games', via: :get
   match '/games/finished_games', to: 'games#finished_games', via: :get
   match '/current_status', to: 'sessions#check_status', via: :get
+  match '/current_user', to: 'sessions#current_user', via: :get
 
   get '/user', to: redirect('/user')
   get '/login', to: redirect('/login')

@@ -9,15 +9,32 @@ function getCurrentGames() {
   });
 }
 
+function getCurrentUser() {
+  return $.ajax({
+    url: '/current_user',
+  })
+}
+
+Handlebars.registerHelper("notLoggedIn", function (data, responderID, currentUserId, options) {
+  if (responderID === currentUserId) {
+    // console.log(data);
+    // console.log(options);
+    return options.fn(data);
+  }
+});
+
 function loadCurrentGames() {
   var currentGameData = getCurrentGames();
   currentGameData.done(function(gameData) {
     $('.main-content').empty();
-    var source   = $("#games-template").html();
-    var template = Handlebars.compile(source);
-    var context = {games: gameData};
-    $('.main-content').append(template(context));
-    getStarRating();
+    var currentUserData = getCurrentUser();
+    currentUserData.done(function (userIdData) {
+      var source   = $("#games-template").html();
+      var template = Handlebars.compile(source);
+      var context = {games: gameData, currentUserId: userIdData};
+      $('.main-content').append(template(context));
+      getStarRating();
+    })
   });
 }
 
