@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trading Faces</title>
+  <link href='https://fonts.googleapis.com/css?family=Megrim' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheets/app.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+  <script src="/javascript/confirmations.js"></script>
+  <script src="/javascript/index.js"></script>
+  <script src="/javascript/game_play.js"></script>
+  <script src="/javascript/overlays.js"></script>
+  <script src="/javascript/photos.js"></script>
+  <script src="/javascript/game_display.js"></script>
+  <script src="/javascript/application.js"></script>
+
+
+</head>
+<body>
+  <div class="container">
+    <div id="navbar">
+      <a href="/friends" id="new-game" class="thumbnail">
+        <img src="/images/smile_icon.png">New Game
+      </a>
+
+      <a href="#" id="current-games" class="thumbnail">
+        <img src="/images/tongue_icon.png">Current Games
+      </a>
+
+      <div id="logo">
+        <h1>Trading Faces</h1>
+      </div>
+
+      <a href="#" id="old-games" class="thumbnail">
+        <img src="/images/whistle_icon.png">Old Games
+      </a>
+
+      <a href="/signout" id="logout" class="thumbnail">
+        <img src="/images/wink_icon.png">Logout
+      </a>
+    </div>
+
+    <div class="main-content">
+    </div>
+
+    <div id="friends-overlay">
+      <div class="start-game">
+        <p class="module-closer"><a href="#">[x] close</a></p>
+        <div class="friend-box">
+        </div>
+      </div>
+    </div>
+
+    <script type="text/xhandlebars-template" id="friends_to_challenge_template">
+        <h2>Pick a Friend</h2>
+          {{#each friends}}
+            <div id="friend_{{id}}">
+              <img class="thumbnail" src="{{photo_url}}">
+              <div class="friend_data">
+                <h3>{{full_name}}</h3>
+                <form action="/games">
+                  <input type="submit" value="Challenge!" id="user_{{id}}" />
+                </form>
+              </div>
+            </div>
+          {{/each}}
+    </script>
+
+    <script id="games-template" type="text/x-handlebars-template">
+      {{#each games}}
+        <div class="row well" id="game-{{id}}">
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-5" id="player-{{users.0.id}}">
+                <img src="{{users.0.photo_url}}" class="img-responsive img-rounded" />
+                <p style="text-align: center;">{{users.0.full_name}}</p>
+              </div>
+              <div class="col-md-2">
+                <h4>VS</h4>
+              </div>
+              <div class="col-md-5" id="player-{{users.1.id}}">
+                <img src="{{users.1.photo_url}}" class="img-responsive img-rounded" />
+                <p "text-align: center;">{{users.1.full_name}}</p>
+              </div>
+            </div>
+          </div>
+          {{#each rounds}}
+            <div class="col-md-4" id="round-{{id}}">
+              <div class="row">
+                {{#each photos}}
+                  <div class="col-md-6">
+                    <img src="{{img_url}}" class="img-responsive img-rounded"/>
+                  </div>
+                {{/each}}
+              </div>
+              {{#if rating }}
+                <p class="rating">Rating: {{rating}}</p>
+              {{ else }}
+                <button class="respond-to" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Respond</button>
+              {{/if}}
+            </div>
+          {{/each}}
+        </div>
+      {{/each}}
+    </script>
+
+    <div id="photo-overlay">
+      <div class="photo-box">
+        <p class="module-closer"><a href="#">[x] close</a></p>
+
+        <div class="video_content">
+          <div id="loader"></div>
+          <div id="checkmark"></div>
+
+          <div id="video_container">
+            <video id="camera-stream" width="500" autoplay></video>
+            <p>
+              <button id="take-photo">Take Photo</button>
+            </p>
+          </div>
+
+          <canvas id="canvas" style="display: none;">
+          </canvas>
+
+          <div class="output">
+            <img id="photo" alt="The screen capture will appear in this box.">
+            <p>
+              <button id="retake-photo">Retake Photo</button>
+              <button id="save-photo" data-game-id data-round-id>Save Photo</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  </div>
+</body>
+</html>
+
