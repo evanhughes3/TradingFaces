@@ -27,8 +27,6 @@ var selectFriendToChallenge = function() {
 }
 
 var photoOverlay = function() {
-  // friendsOverlay(); // maybe not necessary?
-  toggleCamera();
   var $el = $('#photo-overlay')
   var newVisibility = $el.css('visibility') == 'visible' ? 'hidden' : 'visible';
   $el.css('visibility', newVisibility);
@@ -44,4 +42,13 @@ var loadNewGameOverlay = function() {
     openCamera();
     $('#save-photo').attr('data-opponent', opponentClass );
   });
+}
+
+var startRound = function(img, toggleCamera, openCamera) {
+  $('.opponent_image').html(img)
+  setTimeout(function() {
+    $('.opponent_image').hide();
+    toggleCamera();
+    openCamera();
+  }, 5000)
 }
