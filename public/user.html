@@ -24,11 +24,11 @@
   <div class="container">
     <div id="navbar">
       <a href="/friends" id="new-game" class="thumbnail">
-        <img src="/images/smile_icon.png">New Game
+        <img src="https://res.cloudinary.com/hvytc53yh/image/upload/v1427915724/smile_icon_knje1j.png">New Game
       </a>
 
       <a href="#" id="current-games" class="thumbnail">
-        <img src="/images/tongue_icon.png">Current Games
+        <img src="https://res.cloudinary.com/hvytc53yh/image/upload/v1427915723/love_icon_idmzkn.png">Current Games
       </a>
 
       <div id="logo">
@@ -36,11 +36,11 @@
       </div>
 
       <a href="#" id="old-games" class="thumbnail">
-        <img src="/images/whistle_icon.png">Old Games
+        <img src="https://res.cloudinary.com/hvytc53yh/image/upload/v1427915724/whistle_icon_egojo8.png">Old Games
       </a>
 
       <a href="/signout" id="logout" class="thumbnail">
-        <img src="/images/wink_icon.png">Logout
+        <img src="https://res.cloudinary.com/hvytc53yh/image/upload/v1427915724/wink_icon_s3oyss.png">Logout
       </a>
     </div>
 
@@ -62,8 +62,8 @@
             <div class="friend-box" id="friend_{{id}}">
               <img class="thumbnail" src="{{photo_url}}">
               <div class="friend_data">
-                <h3>{{full_name}}</h3>
-                <button id="#user_{{id}}" class="challenge_friend">Challenge</button>
+                <h3 class="friend-name">{{full_name}}</h3>
+                <button id="#user_{{id}}" class="challenge_friend btn btn-danger">Challenge</button>
                 </form>
               </div>
             </div>
@@ -72,49 +72,55 @@
     </script>
 
     <script id="games-template" type="text/x-handlebars-template">
-      {{#each games}}
-        <div class="row well" id="game-{{id}}">
-          <div class="col-md-4">
-            <div class="row">
-
-              <div class="col-md-5" id="player-{{users.0.id}}">
-                <img src="{{users.0.photo_url}}" class="img-responsive img-rounded" />
-                <p style="text-align: center;">{{users.0.full_name}}</p>
-              </div>
-              <div class="col-md-2">
-                <h4>VS</h4>
-              </div>
-              <div class="col-md-5" id="player-{{users.1.id}}">
-                <img src="{{users.1.photo_url}}" class="img-responsive img-rounded" />
-                <p "text-align: center;">{{users.1.full_name}}</p>
-              </div>
-            </div>
-          </div>
-          {{#each rounds}}
-            <div class="col-md-4" id="round-{{id}}">
+      {{#if games }}
+        {{#each games}}
+          <div class="row well" id="game-{{id}}">
+            <div class="col-md-4">
               <div class="row">
-                {{#each photos}}
-                  <div class="col-md-6">
-                    <img src="{{img_url}}" class="img-responsive img-rounded"/>
-                  </div>
-                {{/each}}
+
+                <div class="col-md-5" id="player-{{users.0.id}}">
+                  <img src="{{users.0.photo_url}}" class="img-responsive img-rounded" />
+                  <p class="user-names">{{users.0.full_name}}</p>
+                </div>
+                <div class="col-md-2">
+                  <h4>VS</h4>
+                </div>
+                <div class="col-md-5" id="player-{{users.1.id}}">
+                  <img src="{{users.1.photo_url}}" class="img-responsive img-rounded" />
+                  <p class="user-names">{{users.1.full_name}}</p>
+                </div>
               </div>
-              {{#if rating }}
-                <p class="rating" >Rating: {{rating}}</p>
-                <div class="star-rating" data-rating={{rating}}></div>
-              {{ else }}
-                {{#if photos}}
-                  {{#notLoggedIn this responder.id ../../../../currentUserId}}
-                    <button class="respond-to" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Respond</button>
-                  {{/notLoggedIn}}
-                {{ else }}
-                  <button class="respond-to" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Start New Round</button>
-                {{/if}}
-              {{/if}}
             </div>
-          {{/each}}
-        </div>
-      {{/each}}
+            {{#each rounds}}
+              <div class="col-md-4" id="round-{{id}}">
+                <div class="row">
+                  {{#each photos}}
+                    <div class="col-md-6">
+                      <img src="{{img_url}}" class="img-responsive img-rounded"/>
+                    </div>
+                  {{/each}}
+                </div>
+                {{#if rating }}
+                  <p class="rating" >Rating: {{rating}}</p>
+                  <div class="star-rating" data-rating={{rating}}></div>
+                {{ else }}
+                  {{#if photos}}
+                    {{#notLoggedIn this responder.id ../../../../currentUserId}}
+                      <button class="respond-to btn btn-success" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Respond</button>
+                    {{/notLoggedIn}}
+                  {{ else }}
+                    {{#loggedIn this responder.id ../../../../currentUserId}}
+                    <button class="respond-to btn btn-success" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Start New Round</button>
+                    {{/loggedIn }}
+                  {{/if}}
+                {{/if}}
+              </div>
+            {{/each}}
+          </div>
+        {{/each}}
+      {{ else }}
+        <h3>You have no games.</h3>
+      {{/if}}
     </script>
 
     <div id="photo-overlay">

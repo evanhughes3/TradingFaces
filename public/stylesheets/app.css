@@ -1,7 +1,13 @@
 /** {
   border: 1px solid black;
 }*/
+.challenge_friend {
+  margin-top: 0px;
+}
 
+.friend-name {
+  margin: 5px;
+}
 
 #banner {
   height:25%;
@@ -150,4 +156,13 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.user-names {
+  text-align: center;
+}
+
+.winner {
+  text-align: center;
+  color: red;
 }
