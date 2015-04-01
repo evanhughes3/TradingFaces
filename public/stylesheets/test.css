@@ -1,0 +1,36 @@
+#navbar .thumbnail {
+  width: 9%;
+  height: 9%;
+  text-align: center;
+  display: inline-block;
+  float: left;
+  margin-left: 6%;
+  border: none;
+  margin-top: 5%;
+}
+
+#logo {
+  width: 30%;
+  display: inline-block;
+  float: left;
+  text-align: center;
+  margin-left: 4%;
+  font-family: 'Megrim', cursive;
+  font-size: 50px;
+}
+
+#nabar2 {
+  clear: both;
+}
+
+.face-icon {
+  clear: both;
+  height: 96px;
+  width: 112px;
+  background-image: url("../images/wink_icon.png");
+  background-color: blue;
+}
+
+.face-icon:hover {
+  background-image: url("../images/smile_icon.png");
+}
