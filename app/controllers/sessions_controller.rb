@@ -10,7 +10,17 @@ class SessionsController < ApplicationController
     redirect_to "#{ENV['HOSTNAME']}/login"
   end
 
+  def current_user
+  	user_id = session[:user_id]
+  	p user_id
+  	render json: user_id
+  end
+
   def check_status
-  	current_user == nil ? redirect_to("/login") : redirect_to("/user")
+  	if session[:user_id] == nil
+  	 redirect_to("/login")
+	 	else
+	 	 redirect_to("/user")
+	 	end
   end
 end

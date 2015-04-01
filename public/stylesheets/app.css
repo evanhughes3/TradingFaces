@@ -1,7 +1,7 @@
 /** {
   border: 1px solid black;
-}
-*/
+}*/
+
 
 #banner {
   height:25%;
@@ -56,8 +56,10 @@ display: none;
 }
 
 img.thumbnail {
-  width: 15%;
+  width: 50%;
   height: auto;
+  margin: auto;
+
 }
 
 #friends-overlay {
@@ -79,6 +81,7 @@ img.thumbnail {
   border-radius: 10px;
   height: 50%;
   width: 90%;
+  overflow: auto;
   background-color: #fff;
 }
 
@@ -124,17 +127,6 @@ img.thumbnail {
 }
 
 .friend_box {
-  /*height: 200px;*/
-}
-
-.thumbnail  {
-  max-width: 12%;
-  float: left;
-  margin-left: 2%;
-}
-
-.friend_data {
-  margin: 1em;
   float: left;
 }
 
@@ -152,4 +144,10 @@ img.thumbnail {
 
 button {
   margin: 1em;
+}
+
+.friend-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
