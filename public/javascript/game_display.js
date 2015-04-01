@@ -3,10 +3,9 @@ function currentGamesEventListener (event) {
   loadCurrentGames();
 }
 
-function getCurrentGames() {
-  return $.ajax({
-    url: '/games/current_games',
-  });
+function oldGamesEventListener (event) {
+  event.preventDefault();
+  loadOldGames();
 }
 
 function getCurrentUser() {
@@ -14,6 +13,12 @@ function getCurrentUser() {
     url: '/current_user',
   })
 }
+
+function getGames(url) {
+  return $.ajax({
+    url: url
+  });
+};
 
 Handlebars.registerHelper("notLoggedIn", function (data, responderID, currentUserId, options) {
   if (responderID === currentUserId) {
@@ -28,7 +33,7 @@ Handlebars.registerHelper("loggedIn", function (data, responderID, currentUserId
 });
 
 function loadCurrentGames() {
-  var currentGameData = getCurrentGames();
+  var currentGameData = getGames('/games/current_games');
   currentGameData.done(function(gameData) {
     $('.main-content').empty();
     var currentUserData = getCurrentUser();
@@ -42,12 +47,9 @@ function loadCurrentGames() {
   });
 }
 
-function getOldGames (event) {
-  event.preventDefault();
-  $.ajax({
-    url: '/games/finished_games'
-  })
-  .done(function(gameData) {
+function loadOldGames () {
+  var oldGamesResponse = getGames('/games/finished_games');
+  oldGamesResponse.done(function(gameData) {
     $('.main-content').empty();
     var source   = $("#games-template").html();
     var template = Handlebars.compile(source);
@@ -55,10 +57,11 @@ function getOldGames (event) {
     $('.main-content').append(template(context));
     getStarRating();
     declareWinners(gameData);
-  })
-  .fail(function() {
-    console.log("error old games");
-  })
+  });
+
+  oldGamesResponse.fail(function(){
+    console.log("failed old games");
+  });
 }
 
 function declareWinners (gameData) {

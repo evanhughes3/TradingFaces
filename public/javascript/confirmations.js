@@ -2,12 +2,16 @@ var toggleLoadingGif = function() {
   $('#loader').toggle();
 }
 
-var showCheckMark = function() {
+var showCheckMark = function(serverData) {
   $('#checkmark').show();
   setTimeout(function() {
     $('#checkmark').hide();
     photoOverlay();
-    loadCurrentGames();
+    if (serverData.finished_game) {
+      loadOldGames();
+    } else {
+      loadCurrentGames();
+    }
   }, 1000);
 }
 

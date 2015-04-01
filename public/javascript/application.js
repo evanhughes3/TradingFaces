@@ -4,7 +4,7 @@ $(document).ready(function () {
   getUser();
   $('.main-content').on('click', '.row div .respond-to', respondToChallenge );
   $('#current-games').click( currentGamesEventListener );
-  $('#old-games').click( getOldGames );
+  $('#old-games').click( oldGamesEventListener );
   selectFriendToChallenge();
   closeOverlays();
   loadNewGameOverlay();

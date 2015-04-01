@@ -20,7 +20,7 @@ class GamesController < ApplicationController
   end
 
   def finished_games
-    games = current_user.get_finished_games.reverse
+    games = current_user.get_finished_games
     render json: games, only: :id, :include => [{:players => {only: [:winner, :user_id]}},
                                                 {:users => {only: [:id, :full_name, :photo_url]}},
                                                 {:rounds => {only: [:id, :rating], :include => [{:responder => {only: [:id, :full_name, :photo_url]}} , :photos]}},]
