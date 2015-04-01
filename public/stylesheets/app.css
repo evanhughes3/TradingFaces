@@ -122,15 +122,9 @@ img.thumbnail {
   background-color: #fff;
 }
 
-#checkmark {
+.confirmation {
   display: none;
-  width: 128px;
-  height: 128px;
-  margin: auto;
-}
-
-#failmark {
-  display: none;
+  margin-top: 50%;
   width: 128px;
   height: 128px;
   margin: auto;
