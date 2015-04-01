@@ -1,8 +1,3 @@
-/** {
-  border: 1px solid black;
-}*/
-
-
 #banner {
   height:25%;
 }
@@ -185,4 +180,8 @@ button {
 
 .game-instructions {
   text-align: center;
+}
+
+.instructions {
+  padding: 10px;
 }
