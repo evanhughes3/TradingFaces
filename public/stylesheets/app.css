@@ -117,13 +117,13 @@ img.thumbnail {
   width: 128px;
   height: 128px;
   margin: auto;
-  background-image: url("../images/checkmark.png");
+  /*background-image: url("../images/checkmark.png");*/
 }
 
-#failmark img {
+#failmark {
   display: none;
-  width: 8em;
-  height: auto;
+  width: 128px;
+  height: 128px;
   margin: auto;
 }
 
