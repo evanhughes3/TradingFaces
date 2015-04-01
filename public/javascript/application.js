@@ -3,9 +3,10 @@ $(document).ready(function () {
   toggleNavbarFaces();
   getUser();
   $('.main-content').on('click', '.row div .respond-to', respondToChallenge );
-  $('#current-games').click( getCurrentGames );
+  $('#current-games').click( currentGamesEventListener );
   $('#old-games').click( getOldGames );
   selectFriendToChallenge();
   closeOverlays();
   loadNewGameOverlay();
+  retakePhotoListener();
 });

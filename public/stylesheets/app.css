@@ -56,8 +56,10 @@ display: none;
 }
 
 img.thumbnail {
-  width: 15%;
+  width: 50%;
   height: auto;
+  margin: auto;
+
 }
 
 #friends-overlay {
@@ -79,6 +81,7 @@ img.thumbnail {
   border-radius: 10px;
   height: 50%;
   width: 90%;
+  overflow: auto;
   background-color: #fff;
 }
 
@@ -96,19 +99,26 @@ img.thumbnail {
 
 #photo-overlay .photo-box {
   width: 50%;
-  margin-top: 10%;
-  margin-left: 5%;
+  margin: 10% auto;
   border-radius: 10px;
-  height: 60%;
-  width: 90%;
+  height: 50%;
+  width: 60%;
   background-color: #fff;
 }
 
-#loader {
+#checkmark {
+  display: none;
   width: 128px;
   height: 128px;
   margin: auto;
+  background-image: url("../images/checkmark.png");
+}
+
+#loader {
   display: none;
+  width: 128px;
+  height: 128px;
+  margin: auto;
   background-image: url("../images/ajax_loader.gif")
 }
 
@@ -117,16 +127,31 @@ img.thumbnail {
 }
 
 .friend_box {
-
-}
-
-.thumbnail  {
-  max-width: 12%;
   float: left;
-  margin-left: 2%;
+
 }
 
-.friend_data {
+.video_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#video_container, .output {
+  display: none;
+  margin: 1em;
+}
+
+button {
   margin: 1em;
   float: left;
+
+}
+
+.friend-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
 }

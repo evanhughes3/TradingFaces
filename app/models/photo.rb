@@ -19,6 +19,6 @@ class Photo < ActiveRecord::Base
   	p response
   	face_id = response['face'][0]['face_id'] unless response['face'].empty?
   	photo = round.photos.create(img_url: image_url, face_id: face_id, user_id: current_user.id)
-		return photo  	
+		return photo
   end
 end
