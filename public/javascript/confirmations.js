@@ -15,7 +15,7 @@ var showFailMark = function() {
   $('#failmark').show();
   setTimeout(function() {
     $('#failmark').hide();
-    photoOverlay();
-    console.log('reopen camera here...?')
+    toggleCamera();
+    openCamera();
   }, 1000);
 }
