@@ -8,6 +8,7 @@ class PhotosController < ApplicationController
 			round.compare_photos
 			if game.rounds.length == 2
 				game.declare_winner
+				render json: {finished_game: true}
 			else
 				opponent_id = game.players.pluck('user_id').select { |id| id != current_user.id }
 				game.rounds.create(responder_id: opponent_id[0] )

@@ -135,7 +135,8 @@ function createPhotoAjax (roundId, imageData) {
     console.log('Successfully saved photo.');
     $savebutton.attr('data-round-id', '');
     toggleLoadingGif();
-    showCheckMark();
+    console.log(serverData)
+    showCheckMark(serverData);
   });
 
   ajaxPhoto.fail(function () {
