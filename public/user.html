@@ -72,49 +72,53 @@
     </script>
 
     <script id="games-template" type="text/x-handlebars-template">
-      {{#each games}}
-        <div class="row well" id="game-{{id}}">
-          <div class="col-md-4">
-            <div class="row">
-
-              <div class="col-md-5" id="player-{{users.0.id}}">
-                <img src="{{users.0.photo_url}}" class="img-responsive img-rounded" />
-                <p style="text-align: center;">{{users.0.full_name}}</p>
-              </div>
-              <div class="col-md-2">
-                <h4>VS</h4>
-              </div>
-              <div class="col-md-5" id="player-{{users.1.id}}">
-                <img src="{{users.1.photo_url}}" class="img-responsive img-rounded" />
-                <p "text-align: center;">{{users.1.full_name}}</p>
-              </div>
-            </div>
-          </div>
-          {{#each rounds}}
-            <div class="col-md-4" id="round-{{id}}">
+      {{#if games }}
+        {{#each games}}
+          <div class="row well" id="game-{{id}}">
+            <div class="col-md-4">
               <div class="row">
-                {{#each photos}}
-                  <div class="col-md-6">
-                    <img src="{{img_url}}" class="img-responsive img-rounded"/>
-                  </div>
-                {{/each}}
+
+                <div class="col-md-5" id="player-{{users.0.id}}">
+                  <img src="{{users.0.photo_url}}" class="img-responsive img-rounded" />
+                  <p style="text-align: center;">{{users.0.full_name}}</p>
+                </div>
+                <div class="col-md-2">
+                  <h4>VS</h4>
+                </div>
+                <div class="col-md-5" id="player-{{users.1.id}}">
+                  <img src="{{users.1.photo_url}}" class="img-responsive img-rounded" />
+                  <p "text-align: center;">{{users.1.full_name}}</p>
+                </div>
               </div>
-              {{#if rating }}
-                <p class="rating" >Rating: {{rating}}</p>
-                <div class="star-rating" data-rating={{rating}}></div>
-              {{ else }}
-                {{#if photos}}
-                  {{#notLoggedIn this responder.id ../../../../currentUserId}}
-                    <button class="respond-to" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Respond</button>
-                  {{/notLoggedIn}}
-                {{ else }}
-                  <button class="respond-to" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Start New Round</button>
-                {{/if}}
-              {{/if}}
             </div>
-          {{/each}}
-        </div>
-      {{/each}}
+            {{#each rounds}}
+              <div class="col-md-4" id="round-{{id}}">
+                <div class="row">
+                  {{#each photos}}
+                    <div class="col-md-6">
+                      <img src="{{img_url}}" class="img-responsive img-rounded"/>
+                    </div>
+                  {{/each}}
+                </div>
+                {{#if rating }}
+                  <p class="rating" >Rating: {{rating}}</p>
+                  <div class="star-rating" data-rating={{rating}}></div>
+                {{ else }}
+                  {{#if photos}}
+                    {{#notLoggedIn this responder.id ../../../../currentUserId}}
+                      <button class="respond-to" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Respond</button>
+                    {{/notLoggedIn}}
+                  {{ else }}
+                    <button class="respond-to" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Start New Round</button>
+                  {{/if}}
+                {{/if}}
+              </div>
+            {{/each}}
+          </div>
+        {{/each}}
+      {{ else }}
+        <h3>You have no games.</h3>
+      {{/if}}
     </script>
 
     <div id="photo-overlay">
