@@ -53,3 +53,21 @@ var startRound = function(img, toggleCamera, openCamera) {
     openCamera();
   }, 5000)
 }
+
+var gameInstructionsOverlay = function() {
+  $('.instructions').empty();
+  el = document.getElementById("game-info-overlay");
+  el.style.visibility = (el.style.visibility == "visible") ?
+  "hidden" : "visible";
+
+  var html = $('#game-instructions-template').html();
+  var gameInfoTemplate = Handlebars.compile(html);
+  $('.instructions').append(gameInfoTemplate());
+
+  $('.game-info-closer').on('click', function(event) {
+    event.preventDefault();
+    $('#game-info-overlay').css('visibility', 'hidden')
+  });
+}
+
+// CARIIII HELP ME CLOSE OUT OF THIS!!

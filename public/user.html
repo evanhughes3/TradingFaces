@@ -16,6 +16,7 @@
   <script src="/javascript/overlays.js"></script>
   <script src="/javascript/photos.js"></script>
   <script src="/javascript/game_display.js"></script>
+  <script src="/javascript/game_info.js"></script>
   <script src="/javascript/application.js"></script>
 
 
@@ -31,8 +32,10 @@
         <img src="/images/tongue_icon.png">Current Games
       </a>
 
-      <div id="logo">
-        <h1>Trading Faces</h1>
+      <div id="logo" class="game-info">
+        <a href="#">
+            <h1>Trading Faces</h1>
+        </a>
       </div>
 
       <a href="#" id="old-games" class="thumbnail">
@@ -45,6 +48,7 @@
     </div>
 
     <div class="main-content">
+
     </div>
 
     <div id="friends-overlay">
@@ -53,6 +57,13 @@
         <div class="friend-box">
         </div>
       </div>
+    </div>
+
+    <div id="game-info-overlay">
+      <div class="game-info">
+        <p class="game-info-closer"><a href="#">[x] close</a></p>
+          <div class="instructions"></div>
+      </div
     </div>
 
     <script type="text/xhandlebars-template" id="friends_to_challenge_template">
@@ -117,6 +128,20 @@
       {{/each}}
     </script>
 
+    <script id="game-instructions-template" type="text/x-handlebars-template">
+      <div class="row well game-instructions">
+        <h2>A game of funny faces.</h2>
+        <h3>Here is how it works:</h3>
+        <h4>1. Click 'New Game' to start a new game</h4>
+        <h4>2. Select a friend to challenge</h4>
+        <h4>3. Make your best face, and click 'Save Photo'</h4>
+        <h4>4. Your friend can see that photo for 5 seconds, then tries to recreate it</h4>
+        <h4>5. They get a rating based on how accurately they matched your face</h4>
+        <h4>6. Now it's their turn, and do your best to create they're face</h4>
+        <h4>7. A winner is declared, and you can play another game!</h4>
+      </div>
+    </script>
+
     <div id="photo-overlay">
       <div class="photo-box">
         <p class="module-closer"><a href="#">[x] close</a></p>
@@ -142,11 +167,10 @@
             </p>
           </div>
         </div>
+
       </div>
     </div>
-
-  </body>
-
   </div>
+
 </body>
 </html>

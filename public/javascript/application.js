@@ -9,4 +9,5 @@ $(document).ready(function () {
   closeOverlays();
   loadNewGameOverlay();
   retakePhotoListener();
+  $('.game-info').click( gameInstructionsOverlay )
 });
