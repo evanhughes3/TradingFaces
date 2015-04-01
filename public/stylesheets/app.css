@@ -151,3 +151,12 @@ button {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.user-names {
+  text-align: center;
+}
+
+.winner {
+  text-align: center;
+  color: red;
+}
