@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Trading Faces</title>
-  <link href='https://fonts.googleapis.com/css?family=Megrim' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Bubblegum+Sans' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/app.css">
 
@@ -31,8 +31,10 @@
         <img src="https://res.cloudinary.com/hvytc53yh/image/upload/v1427915723/love_icon_idmzkn.png">Current Games
       </a>
 
-      <div id="logo">
-        <h1>Trading Faces</h1>
+      <div id="logo" class="game-info">
+        <a href="#">
+            <h1>Trading Faces</h1>
+        </a>
       </div>
 
       <a href="#" id="old-games" class="thumbnail">
@@ -45,13 +47,56 @@
     </div>
 
     <div class="main-content">
+        <div class="game-instructions">
+        <div class="row well">
+          <h2>A Game of Funny Faces.</h2>
+          <h3>Here is how it works:</h3>
+          <div class="col-xs-4 instructions">
+            <h3>To Start a new Game:</h3>
+            <h4>1. Click 'New Game'</h4>
+            <h4>2. Select a friend to challenge</h4>
+            <h4>3. Make your best face, and click 'Save Photo'</h4>
+            <h4>4. Wait for your friend to respond!</h4>
+          </div>
+          <div class="col-xs-4 instructions">
+            <h3>To Respond to a Challenge:</h3>
+            <h4>1. Navigate to 'Current Games'</h4>
+            <h4>2. Click 'Respond' to a challenge</h4>
+            <h4>3. You will see your friends photo for 5 seconds, then try to recreate it!</h4>
+            <h4>4. The faces are compared, and a rating is generated based on how accurately you matched their face </h4>
+            <h4>6. Now it's your turn to send them back a face!</h4>
+          </div>
+          <div class="col-xs-4 instructions">
+            <h3>After the Game is Over:</h3>
+            <h4>1. After two rounds of play, a winner has been declared!</h4>
+            <h4>2. Click 'Old Games' to see all of your finished games</h4>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+<!--     <div id="click-for-instructions">
+      <div class="thumbnail arrow bounce">
+        <img src="http://www.clipartbest.com/cliparts/RcA/8A7/RcA8A7pcL.png" alt="...">
+      </div>
+      <div id="instructions">
+        <a href=""><h3>Click for Instructions</h3></a>
+      </div>
+    </div> -->
 
     <div id="friends-overlay">
       <div class="start-game">
         <p class="module-closer"><a href="#">[x] close</a></p>
         <div class="friend-box">
         </div>
+      </div>
+    </div>
+
+    <div id="game-info-overlay">
+      <div class="game-info game-info-closer">
+        <p><a href="#">[x] close</a></p>
+          <div class="instructions"></div>
       </div>
     </div>
 
@@ -123,6 +168,35 @@
       {{/if}}
     </script>
 
+    <script id="game-instructions-template" type="text/x-handlebars-template">
+        <div class="game-instructions">
+        <div class="row well">
+          <h2>A Game of Funny Faces.</h2>
+          <h3>Here is how it works:</h3>
+          <div class="col-xs-4 instructions">
+            <h3>To Start a new Game:</h3>
+            <h4>1. Click 'New Game'</h4>
+            <h4>2. Select a friend to challenge</h4>
+            <h4>3. Make your best face, and click 'Save Photo'</h4>
+            <h4>4. Wait for your friend to respond!</h4>
+          </div>
+          <div class="col-xs-4 instructions">
+            <h3>To Respond to a Challenge:</h3>
+            <h4>1. Navigate to 'Current Games'</h4>
+            <h4>2. Click 'Respond' to a challenge</h4>
+            <h4>3. You will see your friends photo for 5 seconds, then try to recreate it!</h4>
+            <h4>4. The faces are compared, and a rating is generated based on how accurately you matched their face </h4>
+            <h4>6. Now it's your turn to send them back a face!</h4>
+          </div>
+          <div class="col-xs-4 instructions">
+            <h3>After the Game is Over:</h3>
+            <h4>1. After two rounds of play, a winner has been declared!</h4>
+            <h4>2. Click 'Old Games' to see all of your finished games</h4>
+          </div>
+        </div>
+      </div>
+    </script>
+
     <div id="photo-overlay">
       <div class="photo-box">
         <p class="module-closer"><a href="#">[x] close</a></p>
@@ -150,11 +224,10 @@
             </p>
           </div>
         </div>
+
       </div>
     </div>
-
-  </body>
-
   </div>
+
 </body>
 </html>

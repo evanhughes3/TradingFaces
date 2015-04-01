@@ -2,6 +2,7 @@ var closeOverlays = function() {
   $('.module-closer').on('click', function(event) {
     event.preventDefault();
     ($('#photo-overlay').css('visibility') == 'visible') ? photoOverlay() : friendsOverlay();
+    renderGameInstructions();
   });
 }
 
@@ -52,4 +53,15 @@ var startRound = function(img, toggleCamera, openCamera) {
     toggleCamera();
     openCamera();
   }, 5000)
+}
+
+var gameInstructionsOverlay = function() {
+  $('.main-content').empty();
+  renderGameInstructions();
+}
+
+var renderGameInstructions = function() {
+  var html = $('#game-instructions-template').html();
+  var gameInfoTemplate = Handlebars.compile(html);
+  $('.main-content').append(gameInfoTemplate());
 }
