@@ -1,6 +1,10 @@
 body {
-  background: url('https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/7/74/74830/comic-sunburst-background-o.jpg') no-repeat center center fixed;
+  background: url('http://res.cloudinary.com/dhihac3v6/image/upload/v1427992101/comic_sunburst_background_ninobf.jpg') no-repeat center center fixed;
   background-size: cover;
+}
+
+h1 {
+  margin-bottom: 16px;
 }
 
 #login-banner {
@@ -28,8 +32,8 @@ body {
 }
 
 #facebook_button {
-  width: 30%;
-  margin-left: 35%;
+  width: 50%;
+  margin-left: 25%;
 }
 
 
