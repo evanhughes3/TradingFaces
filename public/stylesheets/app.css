@@ -207,9 +207,9 @@ button {
 .well {
   border-radius: 15px;
   /*background: url('../images/light-green-pattern-background.jpg') no-repeat center center fixed;*/
-  background: url('http://wallpaperswiki.org/wallpapers/2012/11/Wallpaper-Green-Green-Circles-Bubbles-Abstraction-Texture-Background-1200x1920.jpg') no-repeat center center fixed;
-  background-size: cover;
-  border: 4px solid #E5B60C;
+/*  background: url('http://wallpaperswiki.org/wallpapers/2012/11/Wallpaper-Green-Green-Circles-Bubbles-Abstraction-Texture-Background-1200x1920.jpg') no-repeat center center fixed;
+  background-size: cover;*/
+  border: 4px solid #FFCF23;
 }
 
 .img-rounded {
