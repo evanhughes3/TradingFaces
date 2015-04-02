@@ -1,13 +1,24 @@
+body {
+  background: url('http://res.cloudinary.com/dhihac3v6/image/upload/v1427992101/comic_sunburst_background_ninobf.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+h1 {
+  margin-bottom: 16px;
+}
+
 #login-banner {
   height:20%;
 }
 
 #login-logo {
   width: 50%;
-  font-family: 'Bubblegum Sans', cursive;
+  font-family: 'Walter Turncoat';
   text-align: center;
-  font-size: 250%;
+  font-size: 300%;
   margin-left: 25%;
+  text-shadow: 4px 4px #ff0000;
+  color: #E5B60C;
 }
 
 #landing-body {
@@ -21,8 +32,8 @@
 }
 
 #facebook_button {
-  width: 30%;
-  margin-left: 35%;
+  width: 50%;
+  margin-left: 25%;
 }
 
 
