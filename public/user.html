@@ -134,9 +134,7 @@
                   <div class="star-rating" data-rating={{rating}}></div>
                 {{ else }}
                   {{#if photos}}
-                    {{#notLoggedIn this responder.id ../../../../currentUserId}}
                       <button class="respond-to btn btn-success" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Respond</button>
-                    {{/notLoggedIn}}
                   {{ else }}
                     {{#loggedIn this responder.id ../../../../currentUserId}}
                     <button class="respond-to btn btn-success" link="/rounds/{{id}}/edit" data-round-id="{{id}}">Start New Round</button>
