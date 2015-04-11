@@ -42,5 +42,5 @@ We hope to implement more complex game flow, potentially with more rounds or wit
 Another big step is making this app available on additional platforms. We are considering deploying this game as a mobile app, and we're interested in using the new Facebook Messenger platform. At the very least, we intend to make the site mobile-responsive.
 
 ##The Team
-Team Lead: Evan Hughes
-Team Members: Andrew Scnieder, Cari Westbrook, Zac Barnes
+  * Team Lead: Evan Hughes
+  * Team Members: Andrew Scnieder, Cari Westbrook, Zac Barnes
