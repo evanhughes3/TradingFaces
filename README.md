@@ -6,6 +6,12 @@ Trading Faces is a game of silly selfies. Users challenge a friend to recreate a
 ##Features
 This app is fully decoupled, including decoupled Oauth through Facebook. The game emphasizes a single-page experience and a carefully crafted game flow which hides game logic to emphasize a positive user experience.
 
+##Technologies Used
+  * Back End: Rails API, ActiveRecord, PostgreSQL
+  * Front End: JavaScript, jQuery, Handlebars, HTML, CSS, Bootstrap
+  * APIs: Face++, Cloudinary
+  * OAuth: Facebook
+
 ##Game Rules
 
 ###To Start a new Game:
