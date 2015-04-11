@@ -6,6 +6,25 @@ Trading Faces is a game of silly selfies. Users challenge a friend to recreate a
 ##Features
 This app is fully decoupled, including decoupled Oauth through Facebook. The game emphasizes a single-page experience and a carefully crafted game flow which hides game logic to emphasize a positive user experience.
 
+##Game Rules
+
+###To Start a new Game:
+  1. Click 'New Game'
+  2. Select a friend to challenge
+  3. Make your best face and click 'Save Photo'
+  4. Wait for your friend to respond!
+
+###To Respond to a Challenge:
+  1. Navigate to 'Current Games'
+  2. Click 'Respond'
+  3. You will see your friend's photo for 5 seconds. Try to recreate it!
+  4. The faces are compared, and a rating is generated based on how accurately you matched their   face
+  6. Now it's your turn to send them a challenge!
+
+###Finally:
+  1. After two rounds of play, a winner has been declared!
+  2. Click 'Old Games' to see all of your finished games
+
 ##Challenges We Faced
 One challenge of Trading Faces was using the Face++ API to compare & score two faces for similarities. This is a crucial step, as it allows for an objective score on the similarity of the two faces. This was a little challenging to implement, because the intended use of the Face++ API is to detect the same face. We solved this problem by limiting game play to be between the same two users per each game; thus, users consistently has the same disadvantages against each other within the same game.
 
